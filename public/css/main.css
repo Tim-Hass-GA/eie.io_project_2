@@ -1,0 +1,19 @@
+body {
+  /* text-align: center; */
+  /* font-family: 'Nosifer', cursive; */
+  /* font-family: 'Vast Shadow', cursive; */
+  font-family: 'Bitter', serif;
+}
+
+h1 {
+  color: pink;
+  background-color: gray;
+}
+
+article {
+    display: block;
+}
+
+.ad-space {
+  background-color: pink;
+}

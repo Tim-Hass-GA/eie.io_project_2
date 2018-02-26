@@ -1,0 +1,44 @@
+<!-- <h1>New Implementation</h1> -->
+<h2>Edit Profile</h2>
+<!-- <form class="update-user" action="/user/update/<%= user.id %>" method="post"> -->
+    <!-- <div class="form-group">
+      <label for="authEmail">Email address</label>
+      <input type="email" class="form-control" id="authEmail" aria-describedby="emailHelp" name="email" value="<%= user.email %>">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div> -->
+    <!-- <div class="form-group">
+      <label for="authName">First Name</label>
+      <input type="text" class="form-control" id="authName" name="name" value="<%= user.name %>" >
+    </div> -->
+
+    <!-- // TODO: normalize model -->
+    <!-- <div class="form-group">
+      <label for="authLastName">Last Name</label>
+      <input type="text" class="form-control" id="authLastName" value="<%= user.lastName %>" >
+    </div> -->
+
+    <!-- // TODO: add in password approval -->
+    <!-- <div class="form-group">
+      <label for="authPassword">Password</label>
+      <input id="authPassword" class="form-control" type="password" name="password" placeholder="Enter Password">
+    </div> -->
+<!-- </form> -->
+
+
+<!-- <input type="submit" class="btn btn-primary"> -->
+<div class="update">
+  <form class="update-user" name="userUpdate" action="/user/update/<%= user.id %>" method="post">
+    <div class="form-group">
+      <label for="userEmail">Email</label>
+      <input id="userEmail" type="email" name="email" value="<%= user.email %>">
+    </div>
+
+    <div class="form-group">
+      <label for="userName">Name</label>
+      <input id="userName" type="text" name="name" value="<%= user.name %>">
+    </div>
+
+    <input class="btn btn-primary" type="submit">
+  </form>
+  <a class="btn btn-info" href="/user/profile">Back to profile</a>
+</div>

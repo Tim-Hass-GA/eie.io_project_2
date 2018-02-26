@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Authentication</title>
+    <!-- Google Fonts -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Nosifer" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Vast+Shadow" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Local Style  -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+  </head>
+  <body>
+    <header></header>
+
+    <main>
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-sm-8">
+            <h1>Authentication</h1>
+            <%- JSON.stringify(currentUser) %>            
+            <% include partials/alerts %>
+            <%- body %>
+          </div>
+          <div class="col-sm-4">
+            <% include partials/adspace %>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+    integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!-- Local Script -->
+    <script src="/js/script.js"></script>
+  </body>
+</html>

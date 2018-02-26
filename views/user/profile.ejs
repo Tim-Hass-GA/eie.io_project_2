@@ -1,0 +1,53 @@
+<h2>Profile Page</h2>
+<ul class="list-group">
+  <li class="list-group-item"><%= user.id %></li>
+  <li class="list-group-item list-group-item-primary"><%= user.name %></li>
+  <li class="list-group-item list-group-item-secondary"><%= user.email %></li>
+</ul>
+
+<a class="btn btn-primary" href="/">Home</a>
+<a class="btn btn-info" href="/user/edit/<%= user.id %>">Edit</a>
+<a class="btn btn-danger delete-user" href="/user/delete/<%= user.id %>">Delete</a>
+<a class="btn btn-warning" href="/user/update/password/<%= user.id %>">Update Password</a>
+
+<!-- modal for edit profile -->
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-info editProfile" data-toggle="modal" data-target="#editProfile">
+  Edit (Modal)
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!-- set up the edit form -->
+      <form class="update-user" action="/user/update/<%= user.id %>" method="post">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="authEmail">Email address</label>
+            <input type="email" class="form-control" id="authEmail" aria-describedby="emailHelp" placeholder="Enter email" value="<%= user.email %>">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="authFirstName">First Name</label>
+            <input type="text" class="form-control" id="authFirstName" name="name" placeholder="First First Name" value="<%= user.name %>">
+          </div>
+          <div class="form-group">
+            <label for="authLastName">Last Name</label>
+            <input type="text" class="form-control" id="authLastName" name="lastName" placeholder="First Last Name" value="<%= user.name %>">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" href="/user/profile/<%= user.id %>" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

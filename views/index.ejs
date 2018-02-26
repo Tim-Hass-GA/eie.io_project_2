@@ -1,0 +1,21 @@
+<h2>Home</h2>
+<% if (currentUser) { %>
+  <p>Hi currentUser welcome back.</p>
+<% } %>
+<div class="home-content">
+  <article class="article-#">
+    <h3>Title</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+      ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. </p>
+  </article>
+</div>
+<% if (currentUser) { %>
+  <% include partials/nav %>
+<% } else { %>
+<a class="btn btn-success btn-lg active" role="button" href="/auth/signup">Signup</a>
+<a class="btn btn-primary btn-lg active" role="button" href="/auth/login">Login</a>
+<% }%>
+
+<a href="/profile">Profile</a>
