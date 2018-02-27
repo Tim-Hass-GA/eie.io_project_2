@@ -11,8 +11,10 @@ describe('Creating a User', function() {
   it('should create successfully', function(done) {
     db.user.create({
       email: 'test@test.co',
-      name: 'Brian',
-      password: 'password'
+      first_name: 'Brian',
+      last_name: 'Lifton',
+      password: 'password',
+      bio: 'Bark, bark'
     }).then(function() {
       done();
     }).catch(function(error) {
@@ -23,7 +25,8 @@ describe('Creating a User', function() {
   it('should throw an error on invalid email addresses', function(done) {
     db.user.create({
       email: 'test',
-      name: 'Brian',
+      first_name: 'Brian',
+      last_name: 'Lifton',
       password: 'password'
     }).then(function(newUser) {
       done(newUser);
@@ -35,7 +38,8 @@ describe('Creating a User', function() {
   it('should throw an error on invalid name', function(done) {
     db.user.create({
       email: 'test@test.co',
-      name: '',
+      first_name: '',
+      last_name: 'Lifton',
       password: 'password'
     }).then(function(newUser) {
       done(newUser);
@@ -47,7 +51,8 @@ describe('Creating a User', function() {
   it('should throw an error on invalid password', function(done) {
     db.user.create({
       email: 'test@test.co',
-      name: 'Brian',
+      first_name: 'Brian',
+      last_name: 'Lifton',
       password: 'short'
     }).then(function(newUser) {
       done(newUser);
@@ -59,7 +64,8 @@ describe('Creating a User', function() {
   it('should hash the password before save', function(done) {
     db.user.create({
       email: 'test@test.co',
-      name: 'Brian',
+      frist_name: 'Brian',
+      last_name: 'Lifton',
       password: 'password'
     }).then(function(newUser) {
       if (newUser.password === 'password') {

@@ -16,6 +16,7 @@ router.post('/signup', function(req,res){
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       password: req.body.password,
+      bio: req.body.bio
     }
   }).spread(function(user, created){
     if(created){

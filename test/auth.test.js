@@ -22,7 +22,8 @@ describe('Auth Controller', function() {
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .send({
         email: 'new@new.co',
-        name: 'Brian',
+        first_name: 'Brian',
+        last_name: 'Lifton',
         password: 'password'
       })
       .expect('Location', '/')
@@ -34,7 +35,8 @@ describe('Auth Controller', function() {
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .send({
         email: 'new',
-        name: 'Brian',
+        first_name: 'Brian',
+        last_name: 'Lifton',
         password: 'p'
       })
       .expect('Location', '/auth/signup')

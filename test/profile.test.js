@@ -22,7 +22,8 @@ describe('GET /profile', function() {
     .set('Content-Type', 'application/x-www-form-urlencoded')
     .send({
       email: 'my@user.co',
-      name: 'Brian',
+      first_name: 'Brian',
+      last_name: 'Lifton',
       password: 'password'
     })
     .expect(302)

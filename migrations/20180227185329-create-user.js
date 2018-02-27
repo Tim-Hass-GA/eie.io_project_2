@@ -1,29 +1,29 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('garden_crop_sections', {
+    return queryInterface.createTable('users', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      section_name: {
+      first_name: {
         type: Sequelize.STRING
       },
-      location: {
+      last_name: {
         type: Sequelize.STRING
       },
-      number_of_rows: {
-        type: Sequelize.INTEGER
+      email: {
+        type: Sequelize.STRING
       },
-      row_item_count: {
-        type: Sequelize.INTEGER
+      password: {
+        type: Sequelize.STRING
       },
-      garden_id: {
-        type: Sequelize.INTEGER
+      bio: {
+        type: Sequelize.TEXT
       },
-      crop_id: {
+      entity_id: {
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -37,6 +37,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('garden_crop_sections');
+    return queryInterface.dropTable('users');
   }
 };

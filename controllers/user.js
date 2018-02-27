@@ -63,7 +63,9 @@ router.put('/update/:id', isLoggedIn, function(req,res){
   db.user.findById(req.params.id)
   .then(function(user){
     db.user.update({
-      name: req.body.name,
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      bio: req.body.bio,
       email: req.body.email
     }, {
       where: { id:req.params.id }

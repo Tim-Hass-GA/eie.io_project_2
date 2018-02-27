@@ -10,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    description: DataTypes.TEXT,
+    description: {
+      type: DataTypes.TEXT
+    },
     location: {
       type: DataTypes.STRING,
       validate: {
@@ -20,13 +22,12 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    garden_section_id: DataTypes.INTEGER
+    user_id: DataTypes.INTEGER
   }, {});
   garden.associate = function(models) {
     // associations can be defined here
+    models.garden.hasMany(models.garden_section);
     models.garden.belongsTo(models.user);
-    models.garden.hasMany(models.garden_crop_section);
-    
   };
   return garden;
 };
