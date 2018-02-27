@@ -1,14 +1,21 @@
 'use strict';
-var bcrypt = require('bcrypt');
-
 module.exports = (sequelize, DataTypes) => {
   var user = sequelize.define('user', {
-    name: {
-      type:DataTypes.STRING,
-       validate: {
+    first_name: {
+      type: DataTypes.STRING,
+      validate: {
         len: {
           args: [1,99],
-          msg: 'Invalid Username. Must be between 1 and 99 characters.'
+          msg: 'Invalid First Name. Must be between 1 and 99 characters.'
+        }
+      }
+    },
+    last_name: {
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+          args: [1,99],
+          msg: 'Invalid Last Name. Must be between 1 and 99 characters.'
         }
       }
     },
@@ -28,7 +35,9 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Password must be at least 8 characters.'
         }
       }
-    }
+    },
+    garden_id: DataTypes.INTEGER,
+      allowNull: true
   }, {
     hooks: {
       beforeCreate: function(pendingUser, options){
@@ -44,8 +53,8 @@ module.exports = (sequelize, DataTypes) => {
   });
   user.associate = function(models) {
     // associations can be defined here
+    models.user.hasMany(models.garden);
   };
-
   // add a method to the class model
   // this function will remove the password from the user object
   user.prototype.validPassword = function(passwordEntered){

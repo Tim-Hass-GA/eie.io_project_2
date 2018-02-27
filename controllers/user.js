@@ -14,17 +14,19 @@ var path = require('path');
 //   res.render('profile');
 // });
 
-router.get('/profile', function(req,res){
+router.get('/profile', isLoggedIn, function(req,res){
   console.log('in the user/profile route...');
-
   db.user.findById(req.user.id)
   .then(function(user){
     res.render('user/profile', {user:user});
+  }).catch(function(error){
+    console.log('error occurred ..|..', error.message);
+    req.flash('error', error.message);
   });
 });
 
 // GET EDIT
-router.get('/edit/:id', function(req,res){
+router.get('/edit/:id', isLoggedIn, function(req,res){
   console.log('in the user/edit/:id route...');
   db.user.findById(req.user.id)
   .then(function(user){
@@ -56,7 +58,7 @@ router.get('/edit/:id', function(req,res){
 // });
 
 // PUT ROUTE
-router.put('/update/:id', function(req,res){
+router.put('/update/:id', isLoggedIn, function(req,res){
   console.log('in the user/update/:id route...');
   db.user.findById(req.params.id)
   .then(function(user){
@@ -76,7 +78,7 @@ router.put('/update/:id', function(req,res){
 });
 
 // DELETE ROUTE
-router.delete('/delete/:id', function(req,res){
+router.delete('/delete/:id', isLoggedIn, function(req,res){
   console.log('hit the /delete/:id user');
   db.user.destroy({
     where: {id:req.params.id}
@@ -84,6 +86,9 @@ router.delete('/delete/:id', function(req,res){
     console.log("Successfully deleted ..." + user);
     // how do you hit the logout or home route...
     // res.redirect('/');
+  }).catch(function(error){
+    console.log('error occurred ..|..', error.message);
+    req.flash('error', error.message);
   });
 });
 module.exports = router;

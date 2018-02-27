@@ -1,6 +1,6 @@
 <h2>Home</h2>
 <% if (currentUser) { %>
-  <p>Hi currentUser welcome back.</p>
+  <p>Hi <%= currentUser.first_name %> <%= currentUser.last_name %>, welcome back.</p>
 <% } %>
 <div class="home-content">
   <article class="article-#">

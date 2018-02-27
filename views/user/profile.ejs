@@ -1,7 +1,8 @@
 <h2>Profile Page</h2>
 <ul class="list-group">
   <li class="list-group-item"><%= user.id %></li>
-  <li class="list-group-item list-group-item-primary"><%= user.name %></li>
+  <li class="list-group-item list-group-item-primary"><%= user.first_name %></li>
+  <li class="list-group-item list-group-item-primary"><%= user.last_name %></li>
   <li class="list-group-item list-group-item-secondary"><%= user.email %></li>
 </ul>
 
@@ -30,17 +31,17 @@
       <form class="update-user" action="/user/update/<%= user.id %>" method="post">
         <div class="modal-body">
           <div class="form-group">
-            <label for="authEmail">Email address</label>
+            <label for="authEmail">Email Address</label>
             <input type="email" class="form-control" id="authEmail" aria-describedby="emailHelp" placeholder="Enter email" value="<%= user.email %>">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
             <label for="authFirstName">First Name</label>
-            <input type="text" class="form-control" id="authFirstName" name="name" placeholder="First First Name" value="<%= user.name %>">
+            <input type="text" class="form-control" id="authFirstName" name="first_name" placeholder="First First Name" value="<%= user.first_name %>">
           </div>
           <div class="form-group">
             <label for="authLastName">Last Name</label>
-            <input type="text" class="form-control" id="authLastName" name="lastName" placeholder="First Last Name" value="<%= user.name %>">
+            <input type="text" class="form-control" id="authLastName" name="last_name" placeholder="First Last Name" value="<%= user.last_name %>">
           </div>
         </div>
         <div class="modal-footer">
