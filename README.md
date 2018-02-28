@@ -59,7 +59,7 @@ Flash Messages, and Custom Middleware
 
 #### Development Process
 DAY 1-3: Review code completed in class, create edit (PUT) and delete routes in, post boiler-plate to GitHub. Retrieve copy of boiler-plate and create wireframe concepts.  Discover ideas, sketch out requirements, tweak wireframe layout, draft data models and user stories.
-DAY 4:
+DAY 4: 
 DAY 5:
 DAY 6:
 DAY 7:

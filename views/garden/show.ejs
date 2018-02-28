@@ -1,0 +1,26 @@
+  <h2>List of <%= currentUser.first_name %>'s Gardens</h2>
+
+  <p>Below is a list of your gardens.</p>
+
+  <ul class="list-group">
+    <li class="list-group-item">click on the name to edit the garden</li>
+  </ul>
+
+      <% if (gardens){ %>
+        <% gardens.forEach(function(garden) { %>
+          <ul class="list-group">
+            <li class="list-group-item"><%= garden.id %></li>
+            <li class="list-group-item list-group-item-primary"><%= garden.name %></li>
+            <li class="list-group-item list-group-item-primary"><%= garden.description %></li>
+            <li class="list-group-item list-group-item-primary"><%= garden.location %></li>
+          </ul>
+        <% }); %>
+
+      <% } else { %>
+
+        <p>You have no gardens to display</p>
+        <p>Make one</p>
+
+      <% } %>
+
+      <hr>

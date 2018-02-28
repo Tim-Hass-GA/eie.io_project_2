@@ -1,0 +1,38 @@
+<h2>Create and Plan Your Garden</h2>
+
+<div class="garden">
+  <form class="create-garden" name="gardenCreate" action="/garden/new" method="post">
+    <input type="hidden" class="form-control" name="user_id" value="<%= currentUser.id %>">
+    <div class="form-group">
+      <label for="gardenName">Garden Name</label>
+      <input id="gardenName" type="text" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="gardenDescription">Garden Description</label>
+      <input id="gardenDescription" type="text" name="description">
+    </div>
+
+    <!-- <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Garden Description</span>
+      </div>
+      <textarea class="form-control" name="description" aria-label="Garden Description"></textarea>
+    </div> -->
+
+    <div class="form-group">
+      <label for="gardenLocation">Location</label>
+      <input id="gardenLocation" type="text" name="location">
+    </div>
+
+    <a class="btn btn-primary" role="button" href="/">Home</a>
+    <a class="btn btn-info" role="button" href="/garden/show">Back to Gardens</a>
+    <input class="btn btn-primary" type="submit">
+  </form>
+</div>
+<div class="gardenInfo">
+  <p>What can we put there to help with garden planning?</p>
+
+  <p>may be easier to have a dynamic form for section and crop.</p>
+
+</div>

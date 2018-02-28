@@ -1,12 +1,10 @@
 var express = require('express');
+var flash = require('connect-flash');
 var db = require('../models');
 var router = express.Router();
 var passport = require('../config/ppConfig');
 var isLoggedIn = require('../middleware/isLoggedIn');
 var path = require('path');
-
-
-// GET ROUTE
 
 // add the middleware to handle access to the profile page
 // user must be logged in.
@@ -14,6 +12,7 @@ var path = require('path');
 //   res.render('profile');
 // });
 
+// GET ROUTE
 router.get('/profile', isLoggedIn, function(req,res){
   console.log('in the user/profile route...');
   db.user.findById(req.user.id)
@@ -21,7 +20,7 @@ router.get('/profile', isLoggedIn, function(req,res){
     res.render('user/profile', {user:user});
   }).catch(function(error){
     console.log('error occurred ..|..', error.message);
-    req.flash('error', error.message);
+    res.flash('error', error.message);
   });
 });
 
@@ -88,6 +87,13 @@ router.delete('/delete/:id', isLoggedIn, function(req,res){
     console.log("Successfully deleted ..." + user);
     // how do you hit the logout or home route...
     // res.redirect('/');
+    // res.redirect('auth/logout');
+
+    req.logout();
+    console.log(' ... user session terminated ....');
+    req.flash('success', 'You are now logged out!');
+    res.redirect('/');
+
   }).catch(function(error){
     console.log('error occurred ..|..', error.message);
     req.flash('error', error.message);
