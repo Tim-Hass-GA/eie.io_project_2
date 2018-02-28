@@ -18,7 +18,7 @@ router.post('/new', isLoggedIn, function(req,res){
     name: req.body.name,
     description: req.body.description,
     location: req.body.location,
-    user_id: req.body.user.id
+    user_id: req.body.user_id
   })
   .then(function(garden){
     console.log('garden created....');
