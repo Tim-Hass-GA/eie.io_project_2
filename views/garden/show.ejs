@@ -9,10 +9,10 @@
       <% if (gardens){ %>
         <% gardens.forEach(function(garden) { %>
           <ul class="list-group">
-            <li class="list-group-item"><%= garden.id %></li>
-            <li class="list-group-item list-group-item-primary"><%= garden.name %></li>
-            <li class="list-group-item list-group-item-primary"><%= garden.description %></li>
-            <li class="list-group-item list-group-item-primary"><%= garden.location %></li>
+            <li class="list-group-item"> <%= garden.dataValues.id %></li>
+            <li class="list-group-item list-group-item-primary"><%= garden.dataValues.name %></li>
+            <li class="list-group-item list-group-item-primary"><%= garden.dataValues.description %></li>
+            <li class="list-group-item list-group-item-primary"><%= garden.dataValues.location %></li>
           </ul>
         <% }); %>
 

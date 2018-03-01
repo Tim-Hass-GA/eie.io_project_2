@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('garden_sections', {
+    return queryInterface.createTable('sections', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -23,10 +23,10 @@ module.exports = {
       date_planted: {
         type: Sequelize.DATE
       },
-      garden_id: {
+      gardenId: {
         type: Sequelize.INTEGER
       },
-      crop_id: {
+      cropId: {
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -40,6 +40,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('garden_sections');
+    return queryInterface.dropTable('sections');
   }
 };

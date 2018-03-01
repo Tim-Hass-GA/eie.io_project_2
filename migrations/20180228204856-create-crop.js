@@ -1,20 +1,32 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('notes', {
+    return queryInterface.createTable('crops', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
+      name: {
         type: Sequelize.STRING
       },
-      details: {
-        type: Sequelize.TEXT
+      type: {
+        type: Sequelize.STRING
       },
-      section_id: {
+      url: {
+        type: Sequelize.STRING
+      },
+      perennial: {
+        type: Sequelize.BOOLEAN
+      },
+      median_lifespan: {
+        type: Sequelize.INTEGER
+      },
+      days_to_first_harvest: {
+        type: Sequelize.INTEGER
+      },
+      days_to_last_harvest: {
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -28,6 +40,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('notes');
+    return queryInterface.dropTable('crops');
   }
 };

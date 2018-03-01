@@ -1,4 +1,13 @@
-console.log('js is here....!');
+// console.log('js is here....!');
+
+$(document).ready(function(){
+
+
+  // var number_of_sections = $('gardenSections').val();
+  // console.log('number_of_sections '+number_of_sections);
+
+
+});
 
 $('#myModal').on('shown.bs.modal', function() {
   var button = $(event.editProfile); // Button that triggered the modal

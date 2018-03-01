@@ -5,20 +5,41 @@ var router = express.Router();
 var passport = require('../config/ppConfig');
 var isLoggedIn = require('../middleware/isLoggedIn');
 var path = require('path');
+var request = require('request');
 
 
 // NEW
 router.get('/new', isLoggedIn, function(req,res){
+
   res.render('garden/new');
+});
+
+router.get('/new/api', isLoggedIn, function(req,res){
+
+  // API Call to growstuff to load crops
+  var growStuffAPIUrl = 'http://www.growstuff.org/crops.json';
+  // var growStuffAPIUrl = 'http://www.growstuff.org/crops';
+    request(growStuffAPIUrl, function(error, response, body) {
+      var crops = JSON.parse(body);
+      // var crops = body;
+
+      // console.log("crops object");
+      // console.log(crops);
+      res.render('garden/new', { crops: crops });
+      // res.send({ crops: crops });
+    });
+
+  // res.render('garden/new');
 });
 
 // POST
 router.post('/new', isLoggedIn, function(req,res){
+  console.log(req.body.description);
   db.garden.create({
     name: req.body.name,
     description: req.body.description,
     location: req.body.location,
-    user_id: req.body.user_id
+    userId: req.body.user_id
   })
   .then(function(garden){
     console.log('garden created....');
@@ -33,14 +54,33 @@ router.post('/new', isLoggedIn, function(req,res){
 });
 
 // SHOW
-router.get('/show', isLoggedIn, function(req,res){
-  console.log('hit the garden/show path');
-  db.garden.findAll()
+// router.get('/show', isLoggedIn, function(req,res){
+//   console.log('hit the garden/show path');
+//   db.garden.findAll()
+//   .then(function(gardens){
+//     console.log(gardens);
+//     if (!gardens) throw Error();
+//   res.render('garden/show', {gardens:gardens});
+//   // res.render('garden/show');
+//   })
+//   .catch(function(error){
+//     console.log('error retrieving garden/show data....', error.message);
+//     req.flash('error', error.message);
+//   });
+// });
+
+// SHOW ID
+router.get('/show/:id', isLoggedIn, function(req,res){
+  console.log('hit the garden/show/:id path');
+  // console.log(req.params.id);
+  db.garden.findAll({
+    where: {userId:req.params.id},
+    include: [db.user]
+  })
   .then(function(gardens){
-    console.log(gardens);
+    // console.log(gardens);
     if (!gardens) throw Error();
   res.render('garden/show', {gardens:gardens});
-  // res.render('garden/show');
   })
   .catch(function(error){
     console.log('error retrieving garden/show data....', error.message);

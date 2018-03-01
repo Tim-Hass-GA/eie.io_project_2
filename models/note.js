@@ -13,13 +13,12 @@ module.exports = (sequelize, DataTypes) => {
     details: {
       type: DataTypes.TEXT
     },
-    section_id: {
-      type: DataTypes.INTEGER
-    }
+    sectionId: DataTypes.INTEGER
   }, {});
   note.associate = function(models) {
     // associations can be defined here
-    models.note.belongsTo(models.garden_section);
+    models.note.belongsTo(models.section);
+
   };
   return note;
 };

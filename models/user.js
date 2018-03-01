@@ -48,10 +48,20 @@ module.exports = (sequelize, DataTypes) => {
     },
     bio: {
       type: DataTypes.TEXT
-    }
+    },
+    entityId: DataTypes.INTEGER
   }, {
-    // hooks and options
     hooks: {
+      // happens before the creation
+      beforeValidate: function(){
+        console.log('beforeValidate')
+
+      },
+      // happens after the validation
+      afterValidate: function(){
+        console.log('afterValidate')
+
+      },
       // happens before the validation
       beforeCreate: function(pendingUser, options){
           // check to make sure we have a pending record
@@ -61,16 +71,6 @@ module.exports = (sequelize, DataTypes) => {
             var hash = bcrypt.hashSync(pendingUser.password, 10);
               pendingUser.password = hash;
           }
-      },
-      // happens after the validation
-      afterValidate: function(){
-        console.log('afterValidate')
-
-      },
-      // happens before the creation
-      beforeValidate: function(){
-        console.log('beforeValidate')
-
       },
       // happens after the creation
       afterCreate: function(res){
@@ -82,7 +82,6 @@ module.exports = (sequelize, DataTypes) => {
   user.associate = function(models) {
     // associations can be defined here
     models.user.hasMany(models.garden);
-
   };
   // add a method to the class model
   // this function will remove the password from the user object
