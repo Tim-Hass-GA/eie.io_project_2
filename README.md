@@ -60,9 +60,9 @@ Flash Messages, and Custom Middleware
 #### Development Process
 DAY 1-3: Review code completed in class, create edit (PUT) and delete routes in, post boiler-plate to GitHub. Retrieve copy of boiler-plate and create wireframe concepts.  Discover ideas, sketch out requirements, tweak wireframe layout, draft data models and user stories.
 
-DAY 4: Updated data model began building Sequelize models and making associations, created user and garden routes and supporting forms, reviewed USDA and other API data to determine feasibility of use (had to wait on keys). Found bug in Sequelize model.
+DAY 4: Updated data model began building Sequelize models and making associations, created user and garden routes and supporting forms, reviewed USDA and other API data to determine feasibility of use (had to wait on keys). Found bug in Sequelize model associations with naming convention for join tables.
 
-DAY 5: Reworking Sequelize associations, Identified suitable API, incorporated initial api call to obtain data I wanted.  Continue build
+DAY 5: Reworking Sequelize models and associations, Identified suitable API, incorporated initial api call to obtain data.  Continue build routes and forms, made a few test routes to test database operations from form data.
 
 DAY 6:
 DAY 7:

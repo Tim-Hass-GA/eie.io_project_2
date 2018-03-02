@@ -1,0 +1,60 @@
+    <h3>Garden Section</h3>
+    <div class="gardenSection">
+      <form class="create-garden-section" name="gardenSectionCreate" action="/section/new" method="post">
+        <input type="hidden" class="form-control" name="userId" value="<%= currentUser.id %>">
+        <input type="hidden" class="form-control" name="gardenId" value="<%= garden.id %>">
+        <div class="form-group">
+          <label for="sectionName">Section Name</label>
+          <input id="sectionName" type="text" name="name" placeholder="Name of this garden" value="Name of this section">
+        </div>
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Section Description</span>
+          </div>
+          <textarea class="form-control" name="description" aria-label="Section Description">Testing section</textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="numOfRows">Number of Rows</label>
+          <input id="numOfRows" type="number" name="number_of_rows" min="1" value="1" placeholder="How many rows are in this section of the garden">
+        </div>
+
+        <div class="form-group">
+          <label for="numOfItems">Number of Items</label>
+          <input id="numOfItems" type="number" name="number_of_items" min="1" value="1" placeholder="How many items in each row in this section">
+        </div>
+
+        <div class="form-group">
+          <label for="datePlanted">Date Planted</label>
+          <input id="datePlanted" type="date" name="date_planted" placeholder="What date did you plant this section">
+        </div>
+
+        <!-- for the garden section and crop -->
+        <div class="gardenCropInfo">
+          <h3>Crop Information</h3>
+          <% if (crops){ %>
+
+            <% crops.forEach(function(crop){ %>
+              <div class="form-group">
+                <ul class="list-group">
+                  <li class="list-group-item">Crop ID: <%= crop.id %></li>
+                  <li class="list-group-item list-group-item-primary"><input type="radio" name="crop_choice" value="<%= crop.id %>"> Add Crop <%= crop.name %></li>
+                  <li class="list-group-item"> <input type="hidden" name="crop_name" value="<%= crop.name %>"> Crop Name: <%= crop.name %></li>
+                  <li class="list-group-item">Wikipedia Url: <a href="<%= crop.en_wikipedia_url %>" target="_blank" > <%= crop.en_wikipedia_url %> </a></li>
+                </ul>
+              </div>
+            <% }) %>
+          <% } else { %>
+            <p>Unable to find crops</p>
+          <% } %>
+    </div>
+
+    <input class="btn btn-success" type="submit">
+    </form>
+    </div>
+
+    <div class="gardenSectionNotes">
+      <h3>Garden Section Crop Notes</h3>
+      <p>Here are where notes go.</p>
+    </div>

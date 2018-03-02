@@ -1,26 +1,29 @@
   <h2>List of <%= currentUser.first_name %>'s Gardens</h2>
 
   <p>Below is a list of your gardens.</p>
-
-  <ul class="list-group">
-    <li class="list-group-item">click on the name to edit the garden</li>
-  </ul>
-
       <% if (gardens){ %>
         <% gardens.forEach(function(garden) { %>
           <ul class="list-group">
             <li class="list-group-item"> <%= garden.dataValues.id %></li>
-            <li class="list-group-item list-group-item-primary"><%= garden.dataValues.name %></li>
-            <li class="list-group-item list-group-item-primary"><%= garden.dataValues.description %></li>
-            <li class="list-group-item list-group-item-primary"><%= garden.dataValues.location %></li>
+            <li class="list-group-item list-group-item-primary"><%= garden.dataValues.name %>
+              <a href="/garden/edit/<%= garden.dataValues.id %>"> Edit </a>|
+              <a class="delete-garden" href="/garden/delete/<%= garden.dataValues.id %>"> Delete</a>
+            </li>
+            <li class="list-group-item"><%= garden.dataValues.description %></li>
+            <li class="list-group-item"><%= garden.dataValues.location %></li>
+            <% if(garden.sections){ %>
+              <% garden.sections.forEach(function(section){ %>
+                <li class="list-group-item"><%= section.name %> <a href="/section/show/<%= section.id %>"> Show </a></li>
+                <li class="list-group-item"><%= section.name %> <a href="/section/edit/<%= section.id %>"> Edit </a></li>
+                <li class="list-group-item"><%= section.name %> <a class="delete-section" href="/section/delete/<%= section.id %>"> Delete </a></li>
+              <% }); %>
+            <% }  %>
+            <li class="list-group-item"><a href="/garden/add/<%= garden.dataValues.id %>"> Add Section</a></li>
           </ul>
         <% }); %>
-
       <% } else { %>
-
         <p>You have no gardens to display</p>
-        <p>Make one</p>
-
+        <a class="btn btn-success active" role="button" href="/garden/new">Create Garden</a>
       <% } %>
 
       <hr>

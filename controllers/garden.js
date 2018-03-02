@@ -8,33 +8,33 @@ var path = require('path');
 var request = require('request');
 
 
-// NEW
+// NEW GARDEN FORM
 router.get('/new', isLoggedIn, function(req,res){
-
-  res.render('garden/new');
+      res.render('garden/new3');
 });
 
-router.get('/new/api', isLoggedIn, function(req,res){
-
-  // API Call to growstuff to load crops
-  var growStuffAPIUrl = 'http://www.growstuff.org/crops.json';
-  // var growStuffAPIUrl = 'http://www.growstuff.org/crops';
-    request(growStuffAPIUrl, function(error, response, body) {
-      var crops = JSON.parse(body);
-      // var crops = body;
-
-      // console.log("crops object");
-      // console.log(crops);
-      res.render('garden/new', { crops: crops });
-      // res.send({ crops: crops });
-    });
-
-  // res.render('garden/new');
+// ADD SECTION TO GARDEN
+router.get('/add/:id', isLoggedIn, function(req,res){
+  db.garden.findOne({
+    where: {id:req.params.id}
+  })
+  .then(function(garden){
+    // API Call to growstuff to load crops
+    var growStuffAPIUrl = 'http://www.growstuff.org/crops.json';
+      request(growStuffAPIUrl, function(error, response, body) {
+        var crops = JSON.parse(body);
+        res.render('section/define', { crops:crops, garden:garden });
+      });
+  })
+  .catch(function(error){
+    console.log('error retrieving garden/add data....', error.message);
+    req.flash('error', error.message);
+  });
 });
 
-// POST
+// POST NEW GARDEN
 router.post('/new', isLoggedIn, function(req,res){
-  console.log(req.body.description);
+  // create new garden
   db.garden.create({
     name: req.body.name,
     description: req.body.description,
@@ -42,10 +42,14 @@ router.post('/new', isLoggedIn, function(req,res){
     userId: req.body.user_id
   })
   .then(function(garden){
-    console.log('garden created....');
-    req.flash('Garden Created.!');
-    // res.render('garden/show/' + garden.id);
-    // res.redirect('garden/show);
+    console.log('garden created....' + garden.id);
+    // API Call to growstuff to load crops
+    var growStuffAPIUrl = 'http://www.growstuff.org/crops.json';
+      request(growStuffAPIUrl, function(error, response, body) {
+        var crops = JSON.parse(body);
+        req.flash('Garden Created.!');
+        res.render('section/define', { crops:crops, garden:garden });
+      });
   })
   .catch(function(error){
     console.log('error retrieving garden/show data....', error.message);
@@ -53,34 +57,16 @@ router.post('/new', isLoggedIn, function(req,res){
   });
 });
 
-// SHOW
-// router.get('/show', isLoggedIn, function(req,res){
-//   console.log('hit the garden/show path');
-//   db.garden.findAll()
-//   .then(function(gardens){
-//     console.log(gardens);
-//     if (!gardens) throw Error();
-//   res.render('garden/show', {gardens:gardens});
-//   // res.render('garden/show');
-//   })
-//   .catch(function(error){
-//     console.log('error retrieving garden/show data....', error.message);
-//     req.flash('error', error.message);
-//   });
-// });
-
-// SHOW ID
+// SHOW GARDEN
 router.get('/show/:id', isLoggedIn, function(req,res){
   console.log('hit the garden/show/:id path');
-  // console.log(req.params.id);
   db.garden.findAll({
     where: {userId:req.params.id},
-    include: [db.user]
+    include: [db.section]
   })
   .then(function(gardens){
-    // console.log(gardens);
     if (!gardens) throw Error();
-  res.render('garden/show', {gardens:gardens});
+    res.render('garden/show', {gardens:gardens});
   })
   .catch(function(error){
     console.log('error retrieving garden/show data....', error.message);
@@ -88,11 +74,11 @@ router.get('/show/:id', isLoggedIn, function(req,res){
   });
 });
 
-// GET
+// GET EDIT GARDEN
 router.get('/edit/:id', isLoggedIn, function(req,res){
   console.log('hit the garden/edit/:id path');
   db.garden.findOne({
-    where: {garden_id:req.params.id}
+    where: {id:req.params.id}
   }).then(function(garden){
     res.render('garden/edit', {garden:garden});
   }).catch(function(error){
@@ -110,7 +96,16 @@ router.put('/update/:id', isLoggedIn, function(req,res){
 // DELETE
 router.delete('/delete/:id', isLoggedIn, function(req,res){
   console.log('hit the garden/delete/:id path');
-
+  db.garden.destroy({
+    where: {id:req.params.id}
+  })
+  .then(function(garden){
+    console.log('Successfully deleted ...' + garden);
+  })
+  .catch(function(error){
+    console.log('error occurred ..|..', error.message);
+    req.flash('error', error.message);
+  });
 });
 
 module.exports = router;

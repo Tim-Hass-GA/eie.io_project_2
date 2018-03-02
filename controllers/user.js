@@ -36,26 +36,6 @@ router.get('/edit/:id', isLoggedIn, function(req,res){
   });
 });
 
-// router.get('/edit/:id', isLoggedIn, function(req,res){
-//   console.log('in the user/edit/:id route...');
-//   if (isLoggedIn){
-//     db.user.findById(req.user.id)
-//     .then(function(user){
-//       successRedirect: 'user/edit', {user:user},
-//       successFlash: 'Account found.'
-//     })(req,res);
-//   } else {
-//
-//   }
-//   db.user.findById(req.user.id)
-//   .then(function(user){
-//     res.render('user/edit', {user:user});
-//   }).catch(function(error){
-//     console.log('error occurred ..|..', error.message);
-//     req.flash('error', error.message);
-//   });
-// });
-
 // PUT ROUTE
 router.put('/update/:id', isLoggedIn, function(req,res){
   console.log('in the user/update/:id route...');

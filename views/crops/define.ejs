@@ -1,0 +1,44 @@
+<h3>Garden Crop Info</h3>
+
+<div class="gardenCropInfo">
+  <% if (crops){ %>
+    <!-- <form class="" action="" method="post"> -->
+    <div class="form-group">
+    <% crops.forEach(function(crop){ %>
+        <ul class="list-group">
+          <li class="list-group-item"><input type="radio" name="crop_choice" value="<%= crop.id %>"> Add Crop</li>
+          <li class="list-group-item">Crop ID: <%= crop.id %></li>
+          <li class="list-group-item list-group-item-primary">Crop Name: <%= crop.name %></li>
+          <li class="list-group-item list-group-item-primary">Wikipedia Url: <a href="<%= crop.en_wikipedia_url %>" target="_blank" > <%= crop.en_wikipedia_url %> </a></li>
+          <li class="list-group-item list-group-item-primary">Crop is Perennial: <%= crop.perennial %></li>
+
+          <% if (crop.median_lifespan !== null) { %>
+            <li class="list-group-item list-group-item-primary">Crop Lifespan: <%= crop.median_lifespan %> Days</li>
+          <% } else { %>
+            <li class="list-group-item list-group-item-primary">No Data for crop lifespan</li>
+          <% } %>
+
+          <% if (crop.median_days_to_first_harvest !== null) { %>
+            <li class="list-group-item list-group-item-primary">Crop Days to first harvest: <%= crop.median_days_to_first_harvest %> Days</li>
+          <% } else { %>
+            <li class="list-group-item list-group-item-primary">No Data for days to first harvest</li>
+          <% } %>
+
+          <% if (crop.median_days_to_last_harvest !== null) { %>
+            <li class="list-group-item list-group-item-primary">Crop Days to last harvest: <%= crop.median_days_to_last_harvest %> Days</li>
+          <% } else { %>
+            <li class="list-group-item list-group-item-primary">No Data for days to last harvest</li>
+          <% } %>
+        </ul>
+      <!-- </form> -->
+    <% }) %>
+    </div>
+  <% } else { %>
+    <p>Unable to find crops</p>
+  <% } %>
+</div>
+
+<div class="gardenSectionNotes">
+  <h3>Garden Section Crop Notes</h3>
+  <p>Here are where notes go.</p>
+</div>

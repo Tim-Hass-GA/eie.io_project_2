@@ -1,0 +1,52 @@
+    <h3>Garden Section</h3>
+
+    <div class="gardenSection">
+      <% if (section){ %>
+           <ul class="list-group">
+             <li class="list-group-item list-group-item-primary"><%= section.name %></li>
+             <li class="list-group-item"><%= section.description %></li>
+             <li class="list-group-item"><%= section.number_of_rows %></li>
+             <li class="list-group-item"><%= section.item_count %></li>
+             <li class="list-group-item"><%= section.date_planted %></li>
+           </ul>
+      <% } %>
+
+    </div>
+    <!-- for the garden section and crop -->
+    <div class="gardenCropInfo">
+      <h3>Crop Information</h3>
+      <% if (crop){ %>
+            <ul class="list-group">
+              <li class="list-group-item">Crop ID: <%= crop.id %></li>
+              <li class="list-group-item list-group-item-primary">Crop Name: <%= crop.name %></li>
+              <li class="list-group-item list-group-item">Wikipedia Url: <a href="<%= crop.en_wikipedia_url %>" target="_blank" > <%= crop.en_wikipedia_url %> </a></li>
+              <li class="list-group-item list-group-item">Crop is Perennial: <%= crop.perennial %></li>
+
+              <% if (crop.median_lifespan !== null) { %>
+                <li class="list-group-item list-group-item">Crop Lifespan: <%= crop.median_lifespan %> Days</li>
+              <% } else { %>
+                <li class="list-group-item list-group-item">No Data for crop lifespan</li>
+              <% } %>
+
+              <% if (crop.median_days_to_first_harvest !== null) { %>
+                <li class="list-group-item list-group-item">Crop Days to first harvest: <%= crop.median_days_to_first_harvest %> Days</li>
+              <% } else { %>
+                <li class="list-group-item list-group-item">No Data for days to first harvest</li>
+              <% } %>
+
+              <% if (crop.median_days_to_last_harvest !== null) { %>
+                <li class="list-group-item list-group-item">Crop Days to last harvest: <%= crop.median_days_to_last_harvest %> Days</li>
+              <% } else { %>
+                <li class="list-group-item list-group-item">No Data for days to last harvest</li>
+              <% } %>
+            </ul>
+        </div>
+      <% } else { %>
+        <p>Unable to find crops</p>
+      <% } %>
+
+
+      <div class="gardenSectionNotes">
+        <h3>Garden Section Crop Notes</h3>
+        <p>Here are where notes go.</p>
+      </div>

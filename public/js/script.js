@@ -3,12 +3,9 @@
 $(document).ready(function(){
 
 
-  // var number_of_sections = $('gardenSections').val();
-  // console.log('number_of_sections '+number_of_sections);
-
-
 });
 
+// MODAL
 $('#myModal').on('shown.bs.modal', function() {
   var button = $(event.editProfile); // Button that triggered the modal
   var user = button.data(currentUser); // Extract info from data-* attributes
@@ -33,7 +30,6 @@ $('.update-user').on('submit', function(e){
     url: userUrl,
     data: userData
   }).done(function(user){
-    // location.reload();
     console.log('sending your update to profile...');
   });
 });
@@ -49,5 +45,44 @@ $('.delete-user').on('click', function(e){
     url: userUrl
   }).done(function(user){
     console.log('you selected to delete your profile...');
+  });
+});
+
+// GARDEN UPDATE
+
+// GARDEN DELETE
+$('.delete-garden').on('click', function(e){
+  //prevent default action
+  e.preventDefault();
+  var gardenObj = $(this);
+  var gardenUrl = gardenObj.attr('href');
+  $.ajax({
+    method: 'DELETE',
+    url: gardenUrl
+  }).done(function(garden){
+
+    // location.reload();
+
+    console.log('you selected to delete your garden...');
+  });
+});
+
+// SECTION UPDATE
+$('.update-section').on('submit', function(e){
+  e.preventDefault();
+  console.log('clicked update');
+});
+
+// SECTION DELETE
+$('.delete-section').on('click', function(e){
+  //prevent default action
+  e.preventDefault();
+  var sectionObj = $(this);
+  var sectionUrl = sectionObj.attr('href');
+  $.ajax({
+    method: 'DELETE',
+    url: sectionUrl
+  }).done(function(section){
+    console.log('you selected to delete a section of the garden...');
   });
 });
