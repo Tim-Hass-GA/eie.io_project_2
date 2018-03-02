@@ -6,6 +6,7 @@ var passport = require('../config/ppConfig');
 var isLoggedIn = require('../middleware/isLoggedIn');
 var path = require('path');
 var request = require('request');
+var async = require('async');
 
 
 // NEW GARDEN FORM
@@ -87,7 +88,7 @@ router.get('/edit/:id', isLoggedIn, function(req,res){
   });
 });
 
-// UPDATE GARDEN 
+// UPDATE GARDEN
 router.put('/update/:id', isLoggedIn, function(req,res){
   console.log('hit the /garden/update/:id path');
   db.garden.findById(req.params.id)
@@ -117,16 +118,31 @@ router.put('/update/:id', isLoggedIn, function(req,res){
 // DELETE
 router.delete('/delete/:id', isLoggedIn, function(req,res){
   console.log('hit the garden/delete/:id path');
-  db.garden.destroy({
-    where: {id:req.params.id}
-  })
-  .then(function(garden){
-    console.log('Successfully deleted ...' + garden);
+  db.garden.findOne({
+    where: {id:req.params.id},
+    include: [db.section]
+  }).then(function(garden){
+    async.forEach(garden.section, function(garden, callback){
+      section.removeGarden(garden);
+      callback();
+    } , function(){
+        db.garden.destroy({
+          where: {id:req.params.id}
+        })
+        .then(function(garden){
+          console.log('Successfully deleted ...' + garden);
+        })
+        .catch(function(error){
+          console.log('error occurred ..|..', error.message);
+          req.flash('error', error.message);
+        });
+      });
   })
   .catch(function(error){
     console.log('error occurred ..|..', error.message);
     req.flash('error', error.message);
   });
+
 });
 
 module.exports = router;

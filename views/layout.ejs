@@ -3,10 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Authentication</title>
+    <title>Eieio - Garden App</title>
     <!-- Google Fonts -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Nosifer" rel="stylesheet"> -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Vast+Shadow" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -21,8 +19,7 @@
       <div class="container">
         <div class="row justify-content-center align-items-center">
           <div class="col-sm-8">
-            <h1>Authentication</h1>
-            <%- JSON.stringify(currentUser) %>            
+            <h1>Eie.io Backyard Garden</h1>
             <% include partials/alerts %>
             <%- body %>
           </div>
@@ -33,7 +30,9 @@
       </div>
     </main>
 
-    <footer></footer>
+    <footer>
+      <p>This site uses data from the <a href="http://growstuff.org/" target="_blank"> Growstuff API </a>.</p>
+    </footer>
 
     <script src="//code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"

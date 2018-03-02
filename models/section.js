@@ -13,9 +13,13 @@ module.exports = (sequelize, DataTypes) => {
     description: {
       type: DataTypes.TEXT
     },
-    number_of_rows: DataTypes.INTEGER,
-    item_count: DataTypes.INTEGER,
-    date_planted: DataTypes.DATE,
+    number_of_rows: {
+      type: DataTypes.INTEGER
+    },
+    item_count: {
+      type: DataTypes.INTEGER
+    },
+    date_planted: DataTypes.DATEONLY,
     gardenId: DataTypes.INTEGER,
     cropId: DataTypes.INTEGER
   }, {});

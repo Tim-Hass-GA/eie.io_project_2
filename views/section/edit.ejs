@@ -6,27 +6,27 @@
     <input type="hidden" class="form-control" name="gardenId" value="<%= section.gardenId %>">
     <div class="form-group">
       <label for="sectionName">Section Name</label>
-      <input id="sectionName" type="text" name="name" placeholder="Name of this garden" value="<%= section.name %>">
+      <input id="sectionName" type="text" name="name" placeholder="Name of this garden" value="<%= section.name %>" required autofocus>
     </div>
 
     <div class="form-group">
       <label for="sectionDescription">Section Description</label>
-      <input id="sectionDescription" type="text" name="description" placeholder="Section description" value="<%= section.description %>">
+      <input id="sectionDescription" type="text" name="description" placeholder="Section description" value="<%= section.description %>" required>
     </div>
 
     <div class="form-group">
       <label for="numOfRows">Number of Rows</label>
-      <input id="numOfRows" type="number" name="number_of_rows" placeholder="How many rows are in this section of the garden" value="<%= section.number_of_rows %>">
+      <input id="numOfRows" type="number" name="number_of_rows" placeholder="How many rows are in this section of the garden" value="<%= section.number_of_rows %>" required>
     </div>
 
     <div class="form-group">
       <label for="numOfItems">Number of Items</label>
-      <input id="numOfItems" type="number" name="number_of_items" placeholder="How many items in each row in this section" value="<%= section.item_count %>">
+      <input id="numOfItems" type="number" name="number_of_items" placeholder="How many items in each row in this section" value="<%= section.item_count %>" required>
     </div>
 
     <div class="form-group">
       <label for="datePlanted">Date Planted</label>
-      <input id="datePlanted" type="date" name="date_planted" placeholder="What date did you plant this section" value="<%= section.date_planted %>">
+      <input id="datePlanted" type="date" name="date_planted" placeholder="What date did you plant this section" value="<%= section.date_planted %>" required>
     </div>
     <input class="btn btn-success" type="submit">
   </form>

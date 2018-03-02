@@ -5,14 +5,15 @@
         <% gardens.forEach(function(garden) { %>
           <ul class="list-group">
             <li class="list-group-item"> <%= garden.dataValues.id %></li>
-            <li class="list-group-item list-group-item-primary"><%= garden.dataValues.name %>
-              <a href="/garden/edit/<%= garden.dataValues.id %>"> Edit </a>|
+            <li class="list-group-item list-group-item-primary">Name: <%= garden.dataValues.name %>
+              <a href="/garden/edit/<%= garden.dataValues.id %>"> Edit </a> |
               <a class="delete-garden" href="/garden/delete/<%= garden.dataValues.id %>"> Delete</a>
             </li>
-            <li class="list-group-item"><%= garden.dataValues.description %></li>
-            <li class="list-group-item"><%= garden.dataValues.location %></li>
+            <li class="list-group-item">Description: <%= garden.dataValues.description %></li>
+            <li class="list-group-item">Location: <%= garden.dataValues.location %></li>
             <% if(garden.sections){ %>
               <% garden.sections.forEach(function(section){ %>
+                <li class="list-group-item">Sections:</li>
                 <li class="list-group-item"><%= section.name %>
                   <a href="/section/show/<%= section.id %>"> Show </a> |
                   <a href="/section/edit/<%= section.id %>"> Edit </a> |
