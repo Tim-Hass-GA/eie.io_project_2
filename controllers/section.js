@@ -35,7 +35,8 @@ router.get('/edit/:id', isLoggedIn, function(req,res){
     where: {id:req.params.id}
   })
   .then(function(section){
-    res.send(section);
+    // res.send(section);
+    res.render('section/edit', {section:section})
   })
   .catch(function(error){
     console.log('error occurred ..|..', error.message);
@@ -69,8 +70,32 @@ router.post('/new', isLoggedIn, function(req,res){
 // PUT section
 router.put('/update/:id', isLoggedIn, function(req,res){
   console.log('hit the /section/update/:id path');
-
+  db.section.findById(req.params.id)
+  .then(function(section){
+    db.section.update({
+      name: req.body.name,
+      description: req.body.description,
+      number_of_rows: req.body.number_of_rows,
+      item_count: req.body.number_of_items,
+      date_planted: req.body.date_planted
+    },{
+      where: {id:req.params.id}
+    })
+    .then(function(section){
+      console.log('Successfully updated section');
+      req.flash('success', 'Section Updated')
+    })
+    .catch (function(error){
+      console.log('error occurred ..|..', error.message);
+      req.flash('error', error.message);
+    });
+  })
+  .catch(function(error){
+    console.log('error occurred ..|..', error.message);
+    req.flash('error', error.message);
+  });
 });
+
 // DELETE section
 router.delete('/delete/:id', isLoggedIn, function(req,res){
   console.log('hit the /section/delete/:id path');
@@ -85,4 +110,5 @@ router.delete('/delete/:id', isLoggedIn, function(req,res){
     req.flash('error', error.message);
   });
 });
+
 module.exports = router;

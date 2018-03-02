@@ -1,6 +1,6 @@
   <h2>List of <%= currentUser.first_name %>'s Gardens</h2>
 
-  <p>Below is a list of your gardens.</p>
+  <p>List of your gardens.</p>
       <% if (gardens){ %>
         <% gardens.forEach(function(garden) { %>
           <ul class="list-group">
@@ -22,13 +22,9 @@
             <li class="list-group-item"><a href="/garden/add/<%= garden.dataValues.id %>"> Add Section</a></li>
           </ul>
         <% }); %>
-      <% } else { %>
-        <p>You have no gardens to display</p>
-        <a class="btn btn-success active" role="button" href="/garden/new">Create Garden</a>
-      <% } %>
+      <% }  %>
 
       <hr>
       <a class="btn btn-primary" role="button" href="/">Home</a>
       <a class="btn btn-danger active" role="button" href="/auth/logout">Logout</a>
-      <a class="btn btn-info active" role="button" href="/user/profile">User Profile</a>
       <a class="btn btn-success active" role="button" href="/garden/new">Create Garden</a>

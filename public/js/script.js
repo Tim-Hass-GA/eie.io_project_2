@@ -81,7 +81,17 @@ $('.delete-garden').on('click', function(e){
 // SECTION UPDATE
 $('.update-section').on('submit', function(e){
   e.preventDefault();
-  console.log('clicked update');
+  // console.log('clicked update');
+  var sectionObj = $(this);
+  var sectionUrl = sectionObj.attr('action');
+  var sectionData = sectionObj.serialize();
+  $.ajax({
+    method: 'PUT',
+    url: sectionUrl,
+    data: sectionData
+  }).done(function(section){
+    console.log('Successfully updated section.')
+  });
 });
 
 // SECTION DELETE
