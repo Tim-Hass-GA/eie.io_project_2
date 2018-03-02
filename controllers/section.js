@@ -29,6 +29,20 @@ router.get('/show/:id', isLoggedIn, function(req,res){
   });
 });
 
+// GET EDIT
+router.get('/edit/:id', isLoggedIn, function(req,res){
+  db.section.findOne({
+    where: {id:req.params.id}
+  })
+  .then(function(section){
+    res.send(section);
+  })
+  .catch(function(error){
+    console.log('error occurred ..|..', error.message);
+    req.flash('error', error.message);
+  });
+});
+
 // POST section
 router.post('/new', isLoggedIn, function(req,res){
     db.section.create({

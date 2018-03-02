@@ -87,10 +87,31 @@ router.get('/edit/:id', isLoggedIn, function(req,res){
   });
 });
 
-// EDIT/PUT
+// UPDATE GARDEN 
 router.put('/update/:id', isLoggedIn, function(req,res){
   console.log('hit the /garden/update/:id path');
-
+  db.garden.findById(req.params.id)
+  .then(function(garden){
+    db.garden.update({
+      name: req.body.name,
+      description:req.body.description,
+      location: req.body.location
+    } , {
+      where: {id:req.params.id}
+    })
+    .then(function(garden){
+      console.log('Successfully updated garden' + garden.id);
+      req.flash('success', 'Garden updated.')
+    })
+    .catch(function(error){
+      console.log('error occurred ..|..', error.message);
+      req.flash('error', error.message);
+    });
+  })
+  .catch(function(error){
+    console.log('error occurred ..|..', error.message);
+    req.flash('error', error.message);
+  });
 });
 
 // DELETE

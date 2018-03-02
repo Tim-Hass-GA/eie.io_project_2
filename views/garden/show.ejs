@@ -13,9 +13,10 @@
             <li class="list-group-item"><%= garden.dataValues.location %></li>
             <% if(garden.sections){ %>
               <% garden.sections.forEach(function(section){ %>
-                <li class="list-group-item"><%= section.name %> <a href="/section/show/<%= section.id %>"> Show </a></li>
-                <li class="list-group-item"><%= section.name %> <a href="/section/edit/<%= section.id %>"> Edit </a></li>
-                <li class="list-group-item"><%= section.name %> <a class="delete-section" href="/section/delete/<%= section.id %>"> Delete </a></li>
+                <li class="list-group-item"><%= section.name %>
+                  <a href="/section/show/<%= section.id %>"> Show </a> |
+                  <a href="/section/edit/<%= section.id %>"> Edit </a> |
+                  <a class="delete-section" href="/section/delete/<%= section.id %>"> Delete </a></li>
               <% }); %>
             <% }  %>
             <li class="list-group-item"><a href="/garden/add/<%= garden.dataValues.id %>"> Add Section</a></li>
@@ -27,3 +28,7 @@
       <% } %>
 
       <hr>
+      <a class="btn btn-primary" role="button" href="/">Home</a>
+      <a class="btn btn-danger active" role="button" href="/auth/logout">Logout</a>
+      <a class="btn btn-info active" role="button" href="/user/profile">User Profile</a>
+      <a class="btn btn-success active" role="button" href="/garden/new">Create Garden</a>

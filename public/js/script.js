@@ -49,6 +49,19 @@ $('.delete-user').on('click', function(e){
 });
 
 // GARDEN UPDATE
+$('.edit-garden').on('submit', function(e){
+  e.preventDefault();
+  var gardenObj = $(this);
+  var gardenUrl = gardenObj.attr('action');
+  var gardenData = gardenObj.serialize();
+  $.ajax({
+    method: 'PUT',
+    url: gardenUrl,
+    data: gardenData
+  }).done(function(garden){
+    console.log('garden updated.')
+  });
+});
 
 // GARDEN DELETE
 $('.delete-garden').on('click', function(e){
@@ -60,9 +73,7 @@ $('.delete-garden').on('click', function(e){
     method: 'DELETE',
     url: gardenUrl
   }).done(function(garden){
-
-    // location.reload();
-
+    window.location.reload();
     console.log('you selected to delete your garden...');
   });
 });
@@ -83,6 +94,7 @@ $('.delete-section').on('click', function(e){
     method: 'DELETE',
     url: sectionUrl
   }).done(function(section){
+    window.location.reload();
     console.log('you selected to delete a section of the garden...');
   });
 });
