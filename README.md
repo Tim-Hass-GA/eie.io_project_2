@@ -14,29 +14,15 @@ As a user, I’d like to add to or delete crops from a section within my garden.
 As a user, I’d like to add or delete notes concerning crops within a section within my garden.
 As a user, I’d like to query information about the crops within a section of my garden.
 
-## Technologies Used
-HTML, CSS, jQuery, Bootstrap,
-Express, EJS Layouts, Bcrypt, Passport,
-Flash Messages, and Custom Middleware
+https://eieio-garden-app.herokuapp.com/
 
-###dependencies:
-  bcrypt: ^1.0.3,
-  body-parser: ^1.18.2,
-  connect-flash: ^0.1.1,
-  dotenv: ^5.0.0,
-  ejs: ^2.5.7,
-  express: ^4.16.2,
-  express-ejs-layouts: ^2.3.1,
-  express-session: ^1.15.6,
-  morgan: ^1.9.0,
-  passport: ^0.4.0,
-  passport-local: ^1.0.0,
-  pg: ^6.4.2,
-  pg-hstore: ^2.3.2,
-  sequelize: ^4.33.4
+## Technologies Used
+HTML, CSS, jQuery, Javascript, Bootstrap,
+Node, Express, EJS Layouts, Bcrypt, Passport,
+PG, Sequelize, Connect Flash, Morgan and Custom Middleware
 
 ## API Usage
-
+This app uses data from http://growstuff.org/
 
 ## Getting Started
 
