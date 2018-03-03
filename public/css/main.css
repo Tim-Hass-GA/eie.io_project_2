@@ -15,5 +15,17 @@ article {
 }
 
 .ad-space {
-  background-color: pink;
+  background-color: lightgreen;
+  padding: .5em;
+
 }
+
+/* #bootstrap-scrollspy {
+  position: relative;
+  height: 500px;
+  overflow-y: scroll;
+
+} */
+
+/* .scrollspy {
+} */

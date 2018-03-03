@@ -1,7 +1,7 @@
-console.log('js is here....!');
 
+////DOCUMENT READY/////
 $(document).ready(function(){
-
+  console.log('js is here....!');
 
 });
 
@@ -16,6 +16,11 @@ $('#myModal').on('shown.bs.modal', function() {
   modal.find('.modal-body input').val(user);
   $('#authEmail').trigger('focus');
 })
+
+// $('#list-example')
+// $('body').scrollspy({ target: '#bootstrap-scrollspy' })
+
+////////ROUTE HELPERS////////
 
 // USER PUT
 $('.update-user').on('submit', function(e){

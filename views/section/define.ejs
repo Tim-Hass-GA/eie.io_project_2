@@ -38,9 +38,9 @@
             <% crops.forEach(function(crop){ %>
               <div class="form-group">
                 <ul class="list-group">
-                  <li class="list-group-item">Crop ID: <%= crop.id %></li>
-                  <li class="list-group-item list-group-item-primary"><input type="radio" name="crop_choice" value="<%= crop.id %>"> Add Crop <%= crop.name %></li>
-                  <li class="list-group-item"> <input type="hidden" name="crop_name" value="<%= crop.name %>"> Crop Name: <%= crop.name %></li>
+                  <!-- <li class="list-group-item">Crop ID: <%= crop.id %></li> -->
+                  <li class="list-group-item list-group-item-primary"><input type="radio" name="crop_choice" value="<%= crop.id %>"> Add <%= crop.name %> to section</li>
+                  <!-- <li class="list-group-item"> <input type="hidden" name="crop_name" value="<%= crop.name %>"> Crop Name: <%= crop.name %></li> -->
                   <li class="list-group-item">Wikipedia Url: <a href="<%= crop.en_wikipedia_url %>" target="_blank" > <%= crop.en_wikipedia_url %> </a></li>
                 </ul>
               </div>
@@ -50,14 +50,14 @@
           <% } %>
         </div>
 
-        <!-- for the crop -->
-        <!-- <div id="list-example" class="list-group">
+        <!-- scrollspy for the crop -->
+        <!-- <div id="bootstrap-scrollspy" class="list-group">
           <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
           <a class="list-group-item list-group-item-action" href="#list-item-2">Item2</a>
           <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
           <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
         </div>
-        <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
+        <div data-spy="scroll" data-target="#bootstrap-scrollspy" data-offset="0" class="scrollspy">
           <h4 id="list-item-1">Item 1</h4>
           <p>...</p>
           <h4 id="list-item-2">Item 2</h4>
@@ -74,7 +74,7 @@
 
     <div class="gardenSectionNotes">
       <h3>Garden Section Crop Notes</h3>
-      <p>Here are where notes go.</p>
+      
     </div>
     <a class="btn btn-primary" role="button" href="/">Home</a>
     <a class="btn btn-success active" role="button" href="/garden/show/<%=currentUser.id %>">Show Gardens</a>
