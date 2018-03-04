@@ -2,13 +2,12 @@
       <% if (gardens){ %>
         <% gardens.forEach(function(garden) { %>
           <ul class="list-group">
-            <li class="list-group-item"> <%= garden.dataValues.id %></li>
+            <!-- <li class="list-group-item"> <%= garden.dataValues.id %></li> -->
             <li class="list-group-item list-group-item-primary">Name: <%= garden.dataValues.name %>
               <a href="/garden/edit/<%= garden.dataValues.id %>"> Edit </a> |
-              <a class="delete-garden" href="/garden/delete/<%= garden.dataValues.id %>"> Delete</a>
+              <a class="delete-garden" href="/garden/delete/<%= garden.dataValues.id %>"> Delete </a>
             </li>
             <li class="list-group-item">Description: <%= garden.dataValues.description %></li>
-            <li class="list-group-item">Location: <%= garden.dataValues.location %></li>
             <% if(garden.sections){ %>
               <li class="list-group-item">Sections:</li>
               <% garden.sections.forEach(function(section){ %>
@@ -18,7 +17,7 @@
                   <a class="delete-section" href="/section/delete/<%= section.id %>"> Delete </a></li>
               <% }); %>
             <% }  %>
-            <li class="list-group-item"><a href="/garden/add/<%= garden.dataValues.id %>"> Add Section</a></li>
+            <li class="list-group-item"><a href="/garden/add/<%= garden.dataValues.id %>"> Add Section </a></li>
           </ul>
         <% }); %>
       <% }  %>

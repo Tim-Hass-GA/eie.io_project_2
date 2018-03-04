@@ -5,21 +5,25 @@
       <fieldset>
         <div class="garden">
           <input type="hidden" class="form-control" name="user_id" value="<%= currentUser.id %>">
-            <div class="form-group">
-              <label for="gardenName">Garden Name</label>
-              <input id="gardenName" type="text" name="name" placeholder="Name of this garden" required autofocus>
-            </div>
-
-            <div class="form-group">
-              <label for="gardenLocation">Location</label>
-              <input id="gardenLocation" type="text" name="location" placeholder="Location of this garden" required>
-            </div>
-
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Garden Description</span>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="gardenName">Garden Name</label>
+              <div class="col-sm-10">
+                <input id="gardenName" type="text" name="name" placeholder="Name of this garden" aria-label="Garden name" required autofocus>
               </div>
-              <textarea class="form-control" name="description" aria-label="Garden Description" required></textarea>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="gardenLocation">Location</label>
+              <div class="col-sm-10">
+                <input id="gardenLocation" type="text" name="location" placeholder="Location of this garden" aria-label="Garden location" required>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="gardenDescription">Garden Description</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" name="description" aria-label="Garden Description" required></textarea>
+              </div>
             </div>
         </div>
       </fieldset>

@@ -3,11 +3,11 @@
     <div class="gardenSection">
       <% if (section){ %>
            <ul class="list-group">
-             <li class="list-group-item list-group-item-primary"><%= section.name %></li>
-             <li class="list-group-item"><%= section.description %></li>
-             <li class="list-group-item"><%= section.number_of_rows %></li>
-             <li class="list-group-item"><%= section.item_count %></li>
-             <li class="list-group-item"><%= section.date_planted %></li>
+             <li class="list-group-item list-group-item-primary">Name: <%= section.name %></li>
+             <li class="list-group-item">Description: <%= section.description %></li>
+             <li class="list-group-item">Rows: <%= section.number_of_rows %></li>
+             <li class="list-group-item">Number of plants: <%= section.item_count %></li>
+             <li class="list-group-item">Planted on: <%= section.date_planted %></li>
            </ul>
       <% } %>
 
@@ -17,25 +17,26 @@
       <h3>Crop Information</h3>
       <% if (crop){ %>
             <ul class="list-group">
-              <li class="list-group-item">Crop ID: <%= crop.id %></li>
-              <li class="list-group-item list-group-item-primary">Crop Name: <%= crop.name %></li>
-              <li class="list-group-item list-group-item">Wikipedia Url: <a href="<%= crop.en_wikipedia_url %>" target="_blank" > <%= crop.en_wikipedia_url %> </a></li>
-              <li class="list-group-item list-group-item">Crop is Perennial: <%= crop.perennial %></li>
+              <!-- <li class="list-group-item">Crop ID: <%= crop.id %></li> -->
+              <li class="list-group-item list-group-item-primary">
+                Crop: <%= crop.name %>
+                 | Wikipedia: <a href="<%= crop.en_wikipedia_url %>" target="_blank" > <%= crop.name %> </a></li>
+              <li class="list-group-item list-group-item">Is Perennial: <%= crop.perennial %></li>
 
               <% if (crop.median_lifespan !== null) { %>
-                <li class="list-group-item list-group-item">Crop Lifespan: <%= crop.median_lifespan %> Days</li>
+                <li class="list-group-item list-group-item">Lifespan: <%= crop.median_lifespan %> Days</li>
               <% } else { %>
                 <li class="list-group-item list-group-item">No Data for crop lifespan</li>
               <% } %>
 
               <% if (crop.median_days_to_first_harvest !== null) { %>
-                <li class="list-group-item list-group-item">Crop Days to first harvest: <%= crop.median_days_to_first_harvest %> Days</li>
+                <li class="list-group-item list-group-item">Days to first harvest: <%= crop.median_days_to_first_harvest %> Days</li>
               <% } else { %>
                 <li class="list-group-item list-group-item">No Data for days to first harvest</li>
               <% } %>
 
               <% if (crop.median_days_to_last_harvest !== null) { %>
-                <li class="list-group-item list-group-item">Crop Days to last harvest: <%= crop.median_days_to_last_harvest %> Days</li>
+                <li class="list-group-item list-group-item">Days to last harvest: <%= crop.median_days_to_last_harvest %> Days</li>
               <% } else { %>
                 <li class="list-group-item list-group-item">No Data for days to last harvest</li>
               <% } %>

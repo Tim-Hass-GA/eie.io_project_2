@@ -20,6 +20,13 @@ article {
     display: block;
 }
 
+.article-getStarted {
+  background-color: white;
+}
+.article-getStarted h3 {
+  color: #000;
+}
+
 .ad-space {
   text-align: center;
   background-color: lightgreen;

@@ -1,30 +1,39 @@
 <form action="/auth/signup" method="POST">
-  <div class="form-group">
-    <label for="authEmail">Email</label>
-    <input type="email" class="form-control" id="authEmail" aria-describedby="emailHelp" name="email" placeholder="Enter email" required autofocus>
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label" for="authEmail">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="authEmail" aria-describedby="emailHelp" name="email" placeholder="Enter email" aria-label="Enter your email" required autofocus>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
   </div>
 
-  <div class="form-group">
-    <label for="authFirstName">First Name</label>
-    <input id="authFirstName" class="form-control" type="text" name="first_name" placeholder="Enter your first name." required>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label" for="authFirstName">First Name</label>
+    <div class="col-sm-10">
+      <input id="authFirstName" class="form-control" type="text" name="first_name" placeholder="Enter your first name." aria-label="Enter your first name" required>
+    </div>
   </div>
 
-  <div class="form-group">
-    <label for="authLastName">Last Name</label>
-    <input id="authLastName" class="form-control" type="text" name="last_name" placeholder="Enter your last name." required>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label" for="authLastName">Last Name</label>
+    <div class="col-sm-10">
+      <input id="authLastName" class="form-control" type="text" name="last_name" placeholder="Enter your last name." aria-label="Enter your last name" required>
+    </div>
   </div>
 
-  <div class="form-group">
-    <label for="authPassword">Password</label>
-    <input id="authPassword" class="form-control" type="password" name="password" placeholder="Password must 8+ characters." required>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label" for="authPassword">Password</label>
+    <div class="col-sm-10">
+      <input id="authPassword" class="form-control" type="password" name="password" placeholder="Password must 8+ characters." aria-label="Your password must be eight or more characters." required>
+    </div>
   </div>
 
   <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text">Bio</span>
+    <label class="col-sm-2 col-form-label" for="bio">Bio</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" name="bio" aria-label="Your bio"></textarea>
     </div>
-    <textarea class="form-control" name="bio" aria-label="Your bio"></textarea>
   </div>
 
   <input class="btn btn-primary" type="submit">

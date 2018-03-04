@@ -1,15 +1,32 @@
 <h2>Home</h2>
 <% if (currentUser) { %>
-  <p>Hi <%= currentUser.first_name %> <%= currentUser.last_name %>, welcome back.</p>
+  <p>Hi <%= currentUser.first_name %> <%= currentUser.last_name %>, welcome.</p>
 <% } %>
 <div class="home-content">
-  <article class="article-#">
-    <h3>Title</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-      ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-      aliquip ex ea commodo consequat. </p>
+  <article class="article-about">
+    <h3>About Eie.io Garden App.</h3>
+    <p>The Eie.io Garden App allows a user to create and track your backyard
+      garden. </p>
   </article>
+  <hr>
+  <article class="article-getStarted">
+    <h3>How to get started.</h3>
+    <ol>
+      <li>Step 1: Create an Account or Log in.</li>
+      <li>Step 2: Create a Garden</li>
+      <ul>
+        <li>The app will walk you through a series of steps to set up garden sections.</li>
+        <li>There are no limts to the number of gardens you can create and track.</li>
+        <li>There are no limts to the number of sections you can create and track.</li>
+        <li>A section can only have one crop.</li>
+      </ul>
+      <li>The Show Gardens button opens a list of your gardens.</li>
+      <ul>
+        <li>You can edit, add or delete sections.</li>
+      </ul>
+    </ol>
+  </article>
+  <hr>
 </div>
 <% if (currentUser) { %>
   <% include partials/nav %>

@@ -3,19 +3,26 @@
 <div class="garden">
   <form class="edit-garden" name="gardenUpdate" action="/garden/update/<%= garden.id %>" method="post">
     <input type="hidden" class="form-control" name="user_id" value="<%= currentUser.id %>">
-    <div class="form-group">
-      <label for="gardenName">Garden Name</label>
-      <input id="gardenName" type="text" name="name" value="<%= garden.name %>" required autofocus>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="gardenName">Garden Name</label>
+      <div class="col-sm-10">
+        <input id="gardenName" type="text" name="name" value="<%= garden.name %>" required autofocus>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="gardenDescription">Garden Description</label>
-      <input id="gardenDescription" type="text" name="description" value="<%= garden.description %>" required>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="gardenLocation">Location</label>
+      <div class="col-sm-10">
+        <input id="gardenLocation" type="text" name="location" value="<%= garden.location %>" required>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="gardenLocation">Location</label>
-      <input id="gardenLocation" type="text" name="location" value="<%= garden.location %>" required>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="gardenDescription">Garden Description</label>
+      <div class="col-sm-10">
+        <textarea class="form-control" name="description" aria-label="Garden Description" required><%= garden.description %></textarea>
+      </div>
     </div>
 
     <a class="btn btn-info" role="button" href="/garden/show/<%= currentUser.id %>">Back to Gardens</a>
