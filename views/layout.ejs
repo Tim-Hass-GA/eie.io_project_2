@@ -13,25 +13,35 @@
     <link rel="stylesheet" type="text/css" href="/css/main.css">
   </head>
   <body>
-    <header></header>
+    <div class="container">
+
+    <header class="row">
+      <div class="col-sm-12">
+        <h1>Eie.io Backyard Garden</h1>
+        <% include partials/alerts %>
+      </div>
+    </header>
 
     <main>
-      <div class="container">
+      <!-- <div class="container"> -->
         <div class="row justify-content-center align-items-center">
           <div class="col-sm-8">
-            <h1>Eie.io Backyard Garden</h1>
-            <% include partials/alerts %>
+
             <%- body %>
           </div>
           <div class="col-sm-4">
             <% include partials/adspace %>
           </div>
         </div>
-      </div>
+      <!-- </div> -->
     </main>
 
-    <footer></footer>
-
+    <footer class="row ">
+      <div class="col-sm-12 ">
+        <p>footer element</p>
+      </div>
+    </footer>
+  </div>
     <script src="//code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
     integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>

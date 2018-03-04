@@ -10,14 +10,17 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    details: {
-      type: DataTypes.TEXT
-    },
+    details: DataTypes.TEXT,
     sectionId: DataTypes.INTEGER
   }, {});
   note.associate = function(models) {
     // associations can be defined here
-    models.note.belongsTo(models.section);
+    models.note.belongsTo(models.section, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false
+      }
+    });
   };
   return note;
 };

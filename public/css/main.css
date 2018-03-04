@@ -1,16 +1,18 @@
-body {
+html, body {
   font-family: 'Bitter', serif;
+  height: 100%;
 }
 
 .container {
   background-image: url('/img/field-two.jpg');
   /* position: fixed; */
+  min-height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
 
 }
 
-h1, h2, h3, p {
+h1, h2, h3, p, label {
   color: #fff;
 }
 
@@ -34,3 +36,9 @@ article {
 
 /* .scrollspy {
 } */
+
+footer {
+  position:absolute;
+   bottom:0;
+   width:100%;
+}
