@@ -1,11 +1,11 @@
-    <h3>Create Garden Section</h3>
+    <h2>Create Garden Section</h2>
     <div class="gardenSection">
       <form class="create-garden-section" name="gardenSectionCreate" action="/section/new" method="post">
         <input type="hidden" class="form-control" name="userId" value="<%= currentUser.id %>">
         <input type="hidden" class="form-control" name="gardenId" value="<%= garden.id %>">
         <div class="form-group">
           <label for="sectionName">Section Name</label>
-          <input id="sectionName" type="text" name="name" placeholder="Name of this garden" tabindex="1" required autofocus>
+          <input id="sectionName" type="text" name="name" placeholder="Name of this section" tabindex="1" required autofocus>
         </div>
 
         <div class="input-group">
@@ -41,7 +41,7 @@
                   <!-- <li class="list-group-item">Crop ID: <%= crop.id %></li> -->
                   <li class="list-group-item list-group-item-primary"><input type="radio" name="crop_choice" value="<%= crop.id %>"> Add <%= crop.name %> to section</li>
                   <!-- <li class="list-group-item"> <input type="hidden" name="crop_name" value="<%= crop.name %>"> Crop Name: <%= crop.name %></li> -->
-                  <li class="list-group-item">Wikipedia Url: <a href="<%= crop.en_wikipedia_url %>" target="_blank" > <%= crop.en_wikipedia_url %> </a></li>
+                  <!-- <li class="list-group-item">Wikipedia Url: <a href="<%= crop.en_wikipedia_url %>" target="_blank" > <%= crop.en_wikipedia_url %> </a></li> -->
                 </ul>
               </div>
             <% }) %>
@@ -74,7 +74,7 @@
 
     <div class="gardenSectionNotes">
       <h3>Garden Section Crop Notes</h3>
-      
+
     </div>
     <a class="btn btn-primary" role="button" href="/">Home</a>
     <a class="btn btn-success active" role="button" href="/garden/show/<%=currentUser.id %>">Show Gardens</a>

@@ -22,20 +22,7 @@ Node, Express, EJS Layouts, Bcrypt, Passport,
 PG, Sequelize, Connect Flash, Morgan and Custom Middleware
 
 ## API Usage
-This app uses data from http://growstuff.org/
-
-## Getting Started
-
-#### Scaffold w/tests (see `master` branch)
-
-* Run `npm install` to install dependencies
-  * Use `npm run lint:js` to lint your JS
-  * Use `npm run lint:css` to lint your CSS
-  * Use `npm test` to run tests
-* Setup the databases
-  * Run `createdb express_garden_dev` to create the development database
-  * Run `createdb express_garden_test` to create the test database
-  * Run `sequelize db:migrate` to run migrations
+This app uses data from the Growstuff API - http://growstuff.org/
 
 ## Documentation
 
@@ -48,9 +35,10 @@ DAY 1-3: Review code completed in class, create edit (PUT) and delete routes in,
 
 DAY 4: Updated data model began building Sequelize models and making associations, created user and garden routes and supporting forms, reviewed USDA and other API data to determine feasibility of use (had to wait on keys). Found bug in Sequelize model associations with naming convention for join tables.
 
-DAY 5: Reworking Sequelize models and associations, Identified suitable API, incorporated initial api call to obtain data.  Continue build routes and forms, made a few test routes to test database operations from form data.
+DAY 5: Reworked Sequelize models and associations, reviewed API documentation, incorporated initial api calls to obtain data.  Continue garden build routes and forms, made a few test routes to test database operations from form data.
 
-DAY 6:
-DAY 7:
-DAY 8:
-DAY 9:
+DAY 6: Building section and crop routes and updating forms.  Found a few items in my initial models that were not necessary, rebuilt models.
+
+DAY 7: Found a bug on the date variable type for the date planted
+DAY 8: Rebuild models due to cascading association not working correctly and fix the date variable  bug.
+DAY 9: Hope to be styling and

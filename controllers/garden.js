@@ -122,7 +122,8 @@ router.delete('/delete/:id', isLoggedIn, function(req,res){
     where: {id:req.params.id},
     include: [db.section]
   }).then(function(garden){
-    async.forEach(garden.section, function(garden, callback){
+    async.forEach(garden.section, function(section, callback){
+      console.log(section);
       section.removeGarden(garden);
       callback();
     } , function(){

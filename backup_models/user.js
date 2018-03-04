@@ -48,7 +48,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     bio: {
       type: DataTypes.TEXT
-    }
+    },
+    entityId: DataTypes.INTEGER
   }, {
     hooks: {
       // happens before the creation
@@ -80,7 +81,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   user.associate = function(models) {
     // associations can be defined here
-    models.user.hasMany(models.garden);
+    models.user.hasMany(models.garden, {onDelete: 'cascade', hooks: true});
   };
   // add a method to the class model
   // this function will remove the password from the user object

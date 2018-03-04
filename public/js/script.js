@@ -78,7 +78,8 @@ $('.delete-garden').on('click', function(e){
     method: 'DELETE',
     url: gardenUrl
   }).done(function(garden){
-    window.location.reload();
+    // window.location.reload();
+    window.location = '/garden/new';
     console.log('you selected to delete your garden...');
   });
 });

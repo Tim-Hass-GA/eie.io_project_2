@@ -1,13 +1,17 @@
 body {
-  /* text-align: center; */
-  /* font-family: 'Nosifer', cursive; */
-  /* font-family: 'Vast Shadow', cursive; */
   font-family: 'Bitter', serif;
 }
 
-h1 {
-  color: pink;
-  background-color: gray;
+.container {
+  background-image: url('/img/field-two.jpg');
+  /* position: fixed; */
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+h1, h2, h3, p {
+  color: #fff;
 }
 
 article {
@@ -15,6 +19,7 @@ article {
 }
 
 .ad-space {
+  text-align: center;
   background-color: lightgreen;
   padding: .5em;
 

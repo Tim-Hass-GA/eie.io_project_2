@@ -66,13 +66,14 @@ router.delete('/delete/:id', isLoggedIn, function(req,res){
   }).then(function(user){
     console.log("Successfully deleted ..." + user);
     // how do you hit the logout or home route...
-    // res.redirect('/');
+
+    res.redirect('/');
     // res.redirect('auth/logout');
 
-    req.logout();
-    console.log(' ... user session terminated ....');
-    req.flash('success', 'You are now logged out!');
-    res.redirect('/');
+    // req.logout();
+    // console.log(' ... user session terminated ....');
+    // req.flash('success', 'You are now logged out!');
+    // res.render('/');
 
   }).catch(function(error){
     console.log('error occurred ..|..', error.message);

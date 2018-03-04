@@ -22,17 +22,13 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    section_count: DataTypes.INTEGER,
     userId: DataTypes.INTEGER
   }, {});
   garden.associate = function(models) {
     // associations can be defined here
     models.garden.hasMany(models.section);
-    models.garden.belongsTo(models.user, {
-      onDelete: "CASCADE",
-      foreignKey: {
-        allowNull: false
-      }
-    });
+    models.garden.belongsTo(models.user);
   };
   return garden;
 };

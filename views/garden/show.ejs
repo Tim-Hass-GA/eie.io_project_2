@@ -1,6 +1,4 @@
   <h2>List of <%= currentUser.first_name %>'s Gardens</h2>
-
-  <p>List of your gardens.</p>
       <% if (gardens){ %>
         <% gardens.forEach(function(garden) { %>
           <ul class="list-group">
@@ -12,8 +10,8 @@
             <li class="list-group-item">Description: <%= garden.dataValues.description %></li>
             <li class="list-group-item">Location: <%= garden.dataValues.location %></li>
             <% if(garden.sections){ %>
+              <li class="list-group-item">Sections:</li>
               <% garden.sections.forEach(function(section){ %>
-                <li class="list-group-item">Sections:</li>
                 <li class="list-group-item"><%= section.name %>
                   <a href="/section/show/<%= section.id %>"> Show </a> |
                   <a href="/section/edit/<%= section.id %>"> Edit </a> |

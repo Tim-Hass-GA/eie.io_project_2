@@ -14,35 +14,20 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT
     },
     number_of_rows: {
-      type: DataTypes.INTEGER,
-      validate: {
-        min: {
-          args: 1,
-          msg: 'Number of rows must be greater than zero.'
-        }
-      }
+      type: DataTypes.INTEGER
     },
     item_count: {
-      type: DataTypes.INTEGER,
-      validate: {
-        min: {
-          args: 1,
-          msg: 'Number of items must be greater than zero.'
-        }
-      }
+      type: DataTypes.INTEGER
     },
     date_planted: DataTypes.DATEONLY,
-    gardenId: DataTypes.INTEGER
+    gardenId: DataTypes.INTEGER,
+    cropId: DataTypes.INTEGER
   }, {});
   section.associate = function(models) {
     // associations can be defined here
+    models.section.belongsTo(models.garden);
     models.section.hasMany(models.note);
-    models.section.belongsTo(models.garden, {
-      onDelete: "CASCADE",
-      foreignKey: {
-        allowNull: false
-      }
-    });
+    models.section.hasOne(models.crop);
   };
   return section;
 };
