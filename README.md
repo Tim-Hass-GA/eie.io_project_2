@@ -30,7 +30,7 @@ This app uses data from the Growstuff API - http://growstuff.org/
 ![Image of Wireframes](/github.com/Tim-Hass-GA/eie.io_project_2/public/images/inital-wireframe-project-2.png)
 
 ### Data Models
-![Image of Data Models](https://github.com/Tim-Hass-GA/eie.io_project_2/blob/master/public/img/data-model-project-2.png)
+![Image of Data Models](https://github.com/Tim-Hass-GA/eie.io_project_2/public/img/data-model-project-2.png)
 
 #### Development Process
 DAY 1-3: Review code completed in class, create edit (PUT) and delete routes in, post boiler-plate to GitHub. Retrieve copy of boiler-plate and create wireframe concepts.  Discover ideas, sketch out requirements, tweak wireframe layout, draft data models and user stories.
