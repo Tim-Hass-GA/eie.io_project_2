@@ -6,20 +6,20 @@ him track, document, manage information about the plants in his garden; as well 
 obtain data, tips and other guidance related to the crops in his garden.
 
 ## User Stories:
-As a user, I’d like to document, track and manage garden(s) that I plant crops in.
-As a user, I’d like to create, edit or delete my account profile.
-As a user, I’d like to add or delete a garden from my list of gardens.
-As a user, I’d like to add or delete a section of my garden.
-As a user, I’d like to add to or delete crops from a section within my garden.
-As a user, I’d like to add or delete notes concerning crops within a section within my garden.
-As a user, I’d like to query information about the crops within a section of my garden.
+* As a user, I’d like to document, track and manage garden(s) that I plant crops in.
+* As a user, I’d like to create, edit or delete my account profile.
+* As a user, I’d like to add or delete a garden from my list of gardens.
+* As a user, I’d like to add or delete a section of my garden.
+* As a user, I’d like to add to or delete crops from a section within my garden.
+* As a user, I’d like to add or delete notes concerning crops within a section within my garden.
+* As a user, I’d like to query information about the crops within a section of my garden.
 
 https://eieio-garden-app.herokuapp.com/
 
 ## Technologies Used
-HTML, CSS, jQuery, Javascript, Bootstrap,
-Node, Express, EJS Layouts, Bcrypt, Passport,
-PG, Sequelize, Connect Flash, Morgan and Custom Middleware
+* HTML, CSS, jQuery, Javascript, Bootstrap,
+* Node, Express, EJS Layouts, Bcrypt, Passport,
+* PG/PG-HStore, Sequelize, Connect Flash, Morgan and Custom Middleware
 
 ## API Usage
 This app uses data from the Growstuff API - http://growstuff.org/
@@ -33,10 +33,46 @@ This app uses data from the Growstuff API - http://growstuff.org/
 ![Image of Data Models](./readme_images/data-model-project-2.png)
 
 ### Routes
-First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
+Verb | Path | Action | Used for
+------------ | ------------- | ------------ | -------------
+GET | / | index | - home page
+GET | / | new | Content from cell 2
+POST | / | create | Content from cell 2
+PUT | / | update | Content from cell 2
+DELETE | / | delete | Content from cell 2
+Content from cell 1 | Content from cell 2 | Content from cell 1 | Content from cell 2
+Content from cell 1 | Content from cell 2 | Content from cell 1 | Content from cell 2
+Content from cell 1 | Content from cell 2 | Content from cell 1 | Content from cell 2
+Content from cell 1 | Content from cell 2 | Content from cell 1 | Content from cell 2
+Content from cell 1 | Content from cell 2 | Content from cell 1 | Content from cell 2
+Content from cell 1 | Content from cell 2 | Content from cell 1 | Content from cell 2
+Content from cell 1 | Content from cell 2 | Content from cell 1 | Content from cell 2
+Content from cell 1 | Content from cell 2 | Content from cell 1 | Content from cell 2
 Content in the first column | Content in the second column
+
+GET / - home page that lists all posts
+GET /authors - authors page that lists all authors
+POST /authors - creates a new author, then redirects back to GET /authors
+GET /authors/new - page that has a form for creating a new author
+GET /authors/:id - page that shows a specific author and their posts
+POST /posts - creates a new post, then redirects back to GET /
+GET /posts/new - page that has a form for creating a new post
+GET /posts/:id - page that shows a specific post and the author
+
+### Models
+Models
+user
+Attributes: firstName, lastName, bio
+Associations: Has many posts
+garden
+Attributes: title, content, authorId
+Associations: Belongs to one author
+section
+Attributes: title, content, authorId
+Associations: Belongs to one author
+notes
+Attributes: title, content, authorId
+Associations: Belongs to one author
 
 #### Development Process
 DAY 1-3: Review code completed in class, create edit (PUT) and delete routes in, post boiler-plate to GitHub. Retrieve copy of boiler-plate and create wireframe concepts.  Discover ideas, sketch out requirements, tweak wireframe layout, draft data models and user stories.
