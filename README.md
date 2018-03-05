@@ -27,8 +27,10 @@ This app uses data from the Growstuff API - http://growstuff.org/
 ## Documentation
 
 ### Wire Frames
+![Image of Wireframes](/public/images/inital-wireframe-project-2.png)
 
 ### Data Models
+![Image of Data Models](/public/images/data-model-project-2.png)
 
 #### Development Process
 DAY 1-3: Review code completed in class, create edit (PUT) and delete routes in, post boiler-plate to GitHub. Retrieve copy of boiler-plate and create wireframe concepts.  Discover ideas, sketch out requirements, tweak wireframe layout, draft data models and user stories.
@@ -41,6 +43,6 @@ DAY 6: Building section and crop routes and updating forms.  Found a few items i
 
 DAY 7: Found a bug on form data picker, where the date variable was not loading correctly.
 
-DAY 8: Rebuild models due to cascading associations not working correctly. Also corrected data type date variable bug.
+DAY 8: Rebuild models due to cascading associations not working correctly. Also corrected data type date variable bug within model.
 
 DAY 9: Put in notes section (notes need update/delete routes).  Final testing and styling.
