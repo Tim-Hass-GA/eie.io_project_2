@@ -30,8 +30,7 @@ This app uses data from the Growstuff API - http://growstuff.org/
 ![Image of Wireframes](./readme_images/inital-wireframes-project-2.png)
 
 ### Data Models
-![Image of Data Models](https://github.com/Tim-Hass-GA/eie.io_project_2/readme_images/data-model-project-2.png)
-![Image of Data Models](https://github.com/Tim-Hass-GA/eie.io_project_2/blob/master/readme_images/data-model-project-2.png)
+![Image of Data Models](./readme_images/data-model-project-2.png)
 
 ### Routes
 First Header | Second Header
