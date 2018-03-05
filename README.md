@@ -39,6 +39,8 @@ DAY 5: Reworked Sequelize models and associations, reviewed API documentation, i
 
 DAY 6: Building section and crop routes and updating forms.  Found a few items in my initial models that were not necessary, rebuilt models.
 
-DAY 7: Found a bug on the date variable type for the date planted
-DAY 8: Rebuild models due to cascading association not working correctly and fix the date variable  bug.
-DAY 9: Hope to be styling and
+DAY 7: Found a bug on form data picker, where the date variable was not loading correctly.
+
+DAY 8: Rebuild models due to cascading associations not working correctly. Also corrected data type date variable bug.
+
+DAY 9: Put in notes section (notes need update/delete routes).  Final testing and styling.
