@@ -5,6 +5,8 @@ obsessed with animals and farming.  This app was the first app he used "back in 
 him track, document, manage information about the plants in his garden; as well as query APIs to
 obtain data, tips and other guidance related to the crops in his garden.
 
+App is hosted at https://eieio-garden-app.herokuapp.com/
+
 ## User Stories:
 * As a user, I’d like to document, track and manage garden(s) that I plant crops in.
 * As a user, I’d like to create, edit or delete my account profile.
@@ -13,8 +15,6 @@ obtain data, tips and other guidance related to the crops in his garden.
 * As a user, I’d like to add to or delete crops from a section within my garden.
 * As a user, I’d like to add or delete notes concerning crops within a section within my garden.
 * As a user, I’d like to query information about the crops within a section of my garden.
-
-https://eieio-garden-app.herokuapp.com/
 
 ## Technologies Used
 * HTML, CSS, jQuery, Javascript, Bootstrap,
@@ -32,47 +32,50 @@ This app uses data from the Growstuff API - http://growstuff.org/
 ### Data Models
 ![Image of Data Models](./readme_images/data-model-project-2.png)
 
-### Routes
+### CRUD Routes
 Verb | Path | Action | Used for
 ------------ | ------------- | ------------ | -------------
-GET | / | index | - home page
-GET | / | new | Content from cell 2
-POST | / | create | Content from cell 2
-PUT | / | update | Content from cell 2
-DELETE | / | delete | Content from cell 2
-Content from cell 1 | Content from cell 2 | Content from cell 1 | Content from cell 2
-Content from cell 1 | Content from cell 2 | Content from cell 1 | Content from cell 2
-Content from cell 1 | Content from cell 2 | Content from cell 1 | Content from cell 2
-Content from cell 1 | Content from cell 2 | Content from cell 1 | Content from cell 2
-Content from cell 1 | Content from cell 2 | Content from cell 1 | Content from cell 2
-Content from cell 1 | Content from cell 2 | Content from cell 1 | Content from cell 2
-Content from cell 1 | Content from cell 2 | Content from cell 1 | Content from cell 2
-Content from cell 1 | Content from cell 2 | Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
-
-GET / - home page that lists all posts
-GET /authors - authors page that lists all authors
-POST /authors - creates a new author, then redirects back to GET /authors
-GET /authors/new - page that has a form for creating a new author
-GET /authors/:id - page that shows a specific author and their posts
-POST /posts - creates a new post, then redirects back to GET /
-GET /posts/new - page that has a form for creating a new post
-GET /posts/:id - page that shows a specific post and the author
+GET | / | index | - returns home page
+GET | auth/signup | read | - returns HTML for the signup page
+POST | auth/signup | create | - create new user account
+GET | auth/login | read | - returns HTML for to login page
+POST | auth/login | create | - confirms new user account and opens new session
+GET | auth/logout | read | - logs user out of current session
+GET | user/profile | read | - returns HTML view of the user profile
+GET | edit/profile/:id | read | - returns HTML form to update the user profile
+PUT | update/:id | update | - updates user profile data
+DELETE | delete/:id | delete | deletes user profile and all associated data
+GET | garden/new | read | - returns HTML form to create a new garden
+GET | garden/add/:id | read | - returns HTML form to complete the creation of a new garden (or new section if adding) after API call
+POST | garden/new | create | - creates new garden renders HTML form to complete the creation of garden section after API call
+GET | garden/show/:id | read | - returns HTML view of all users gardens and sections (if sections have been created)
+GET | garden/edit/:id | read | - returns HTML form to edit garden details
+PUT | garden/update/:id | update | - updates garden with data provided
+DELETE | garden/delete/:id | delete | - deletes garden and all associated data (sections/notes)
+GET | section/show/:id | read | - returns HTML view of the section including crop information for that section (API call)
+GET | section/edit/:id | read | - returns HTML form to edit garden section details
+POST | section/new | create | - creates new section returns HTML form to complete the creation of a new garden (or new section if adding) after API call
+PUT | section/update/:id | update | - updates garden section with data provided
+DELETE | section/delete/:id | delete | - deletes garden section and all associated data (notes)
+GET | notes/new/:id | read | - returns HTML form to include a note for the section
+POST | notes/new | create | - creates new note for section
+PUT | NOT IN PLACE | update | - updates garden section with data provided
+DELETE | NOT IN PLACE | delete | - deletes garden section and all associated data (notes)
 
 ### Models
 Models
 user
-Attributes: firstName, lastName, bio
-Associations: Has many posts
+Attributes: first_name, last_name, email, password, bio
+Associations: Has many gardens
 garden
-Attributes: title, content, authorId
-Associations: Belongs to one author
+Attributes: name, description, location
+Associations: Belongs to one user, has many sections
 section
-Attributes: title, content, authorId
-Associations: Belongs to one author
+Attributes: name, description, number_of_rows, item_count, date_planted, gardenId (cropId for later use in expanding model)
+Associations: Belongs to one garden, Has many notes
 notes
-Attributes: title, content, authorId
-Associations: Belongs to one author
+Attributes: title, details, sectionId
+Associations: Belongs to one section
 
 #### Development Process
 DAY 1-3: Review code completed in class, create edit (PUT) and delete routes in, post boiler-plate to GitHub. Retrieve copy of boiler-plate and create wireframe concepts.  Discover ideas, sketch out requirements, tweak wireframe layout, draft data models and user stories.

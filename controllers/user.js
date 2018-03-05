@@ -89,4 +89,5 @@ router.delete('/delete/:id', isLoggedIn, function(req,res){
     req.flash('error', error.message);
   });
 });
+
 module.exports = router;
