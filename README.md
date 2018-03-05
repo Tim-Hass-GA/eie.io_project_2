@@ -27,10 +27,17 @@ This app uses data from the Growstuff API - http://growstuff.org/
 ## Documentation
 
 ### Wire Frames
-![Image of Wireframes](/readme_images/inital-wireframes-project-2.png)
+![Image of Wireframes](./readme_images/inital-wireframes-project-2.png)
 
 ### Data Models
 ![Image of Data Models](https://github.com/Tim-Hass-GA/eie.io_project_2/readme_images/data-model-project-2.png)
+![Image of Data Models](https://github.com/Tim-Hass-GA/eie.io_project_2/blob/master/readme_images/data-model-project-2.png)
+
+### Routes
+First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
 
 #### Development Process
 DAY 1-3: Review code completed in class, create edit (PUT) and delete routes in, post boiler-plate to GitHub. Retrieve copy of boiler-plate and create wireframe concepts.  Discover ideas, sketch out requirements, tweak wireframe layout, draft data models and user stories.
@@ -46,3 +53,7 @@ DAY 7: Found a bug on form data picker, where the date variable was not loading 
 DAY 8: Rebuild models due to cascading associations not working correctly. Also corrected data type date variable bug within model.
 
 DAY 9: Put in notes section (notes need update/delete routes).  Final testing and styling.
+
+### Next Steps
+- [x] this is a complete item
+- [ ] this is an incomplete item
