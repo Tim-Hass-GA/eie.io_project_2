@@ -1,5 +1,8 @@
-
-<a class="btn btn-danger active" role="button" href="/auth/logout">Logout</a>
-<a class="btn btn-info active" role="button" href="/user/profile">User Profile</a>
-<a class="btn btn-success active" role="button" href="/garden/show/<%=currentUser.id %>">Show Gardens</a>
-<a class="btn btn-success active" role="button" href="/garden/new">Create Garden</a>
+<div class="row btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="col-sm-12 col-8 button-group" role="group" aria-label="main navigation">
+    <a class="btn btn-danger active" role="button" href="/auth/logout">Logout</a>
+    <a class="btn btn-info active" role="button" href="/user/profile">User Profile</a>
+    <a class="btn btn-success active" role="button" href="/garden/show/<%=currentUser.id %>">Show Gardens</a>
+    <a class="btn btn-success active" role="button" href="/garden/new">Create Garden</a>
+  </div>
+</div>

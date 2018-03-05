@@ -11,7 +11,7 @@ var async = require('async');
 
 // NEW GARDEN FORM
 router.get('/new', isLoggedIn, function(req,res){
-      res.render('garden/new3');
+      res.render('garden/new');
 });
 
 // ADD SECTION TO GARDEN
@@ -43,7 +43,7 @@ router.post('/new', isLoggedIn, function(req,res){
     userId: req.body.user_id
   })
   .then(function(garden){
-    console.log('garden created....' + garden.id);
+    // console.log('garden created....' + garden.id);
     // API Call to growstuff to load crops
     var growStuffAPIUrl = 'http://www.growstuff.org/crops.json';
       request(growStuffAPIUrl, function(error, response, body) {

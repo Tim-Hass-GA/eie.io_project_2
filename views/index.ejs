@@ -20,10 +20,13 @@
         <li>There are no limts to the number of sections you can create and track.</li>
         <li>A section can only have one crop.</li>
       </ul>
-      <li>The Show Gardens button opens a list of your gardens.</li>
-      <ul>
-        <li>You can edit, add or delete sections.</li>
-      </ul>
+      <% if (currentUser) { %>
+        <li>The Show Gardens button opens a list of your gardens.</li>
+        <ul>
+          <li>You can edit, add or delete gardens.</li>
+          <li>You can also edit, add or delete garden sections.</li>
+        </ul>
+      <% } %>
     </ol>
   </article>
   <hr>

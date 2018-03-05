@@ -46,11 +46,19 @@
         <p>Unable to find crops</p>
       <% } %>
 
-
       <div class="gardenSectionNotes">
-        <h3>Garden Section Crop Notes</h3>
-        <p>Here are where notes go.</p>
+        <% if (section.notes) { %>
+          <h3>Section Notes</h3>
+            <% section.notes.forEach(function(note){  %>
+              <ul class="list-group">
+                <li class="list-group-item"><%= note.title %> - <%= note.details %></li>
+                <li class="list-group-item">Created: <%= note.createdAt %></li>
+                <li class="list-group-item">Last update: <%= note.updatedAt %></li>
+              </ul>
+            <% }); %>
+        <% } %>
       </div>
+
       <a class="btn btn-primary" role="button" href="/">Home</a>
       <a class="btn btn-success active" role="button" href="/garden/show/<%=currentUser.id %>">Show Gardens</a>
-      <a class="btn btn-success active" role="button" href="/garden/new">Create Garden</a>
+      <a class="btn btn-success active" role="button" href="/note/new/<%=section.id %>">Create Note</a>

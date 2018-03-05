@@ -10,13 +10,17 @@
 <a class="btn btn-primary" href="/">Home</a>
 <a class="btn btn-info" href="/user/edit/<%= user.id %>">Edit</a>
 <a class="btn btn-danger delete-user" href="/user/delete/<%= user.id %>">Delete</a>
-<a class="btn btn-warning" href="/user/update/password/<%= user.id %>">Update Password</a>
+
+<!-- TODO: add ability to edit password -->
+<!-- <a class="btn btn-warning" href="/user/update/password/<%= user.id %>">Update Password</a> -->
 
 <!-- modal for edit profile -->
+<!-- modal does invoke db change, but needs some work -->
+<!-- TODO: need a refresh on the page when closing modal -->
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-info editProfile" data-toggle="modal" data-target="#editProfile">
+<!-- <button type="button" class="btn btn-info editProfile" data-toggle="modal" data-target="#editProfile">
   Edit (Modal)
-</button>
+</button> -->
 
 <!-- Modal -->
 <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

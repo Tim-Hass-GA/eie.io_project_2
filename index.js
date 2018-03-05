@@ -37,21 +37,28 @@ app.use(function(req, res, next){
   next();
 });
 
+// middleware that allows us to access the 'moment' library in every EJS view
+// app.use(function(req, res, next) {
+//   res.locals.moment = moment;
+//   next();
+// });
+
 app.get('/', function(req, res) {
   res.render('index');
 });
 
 // add the middleware to handle access to the profile page
 // user must be logged in.
-app.get('/profile', isLoggedIn, function(req, res) {
-  console.log(req.user.id);
-  res.render('profile');
-});
+// app.get('/profile', isLoggedIn, function(req, res) {
+//   console.log(req.user.id);
+//   res.render('profile');
+// });
 
 app.use('/auth', require('./controllers/auth'));
 app.use('/user', require('./controllers/user'));
 app.use('/garden', require('./controllers/garden'));
 app.use('/section', require('./controllers/section'));
+app.use('/note', require('./controllers/note'));
 
 var server = app.listen(process.env.PORT || 3000);
 

@@ -6,7 +6,7 @@ var passport = require('../config/ppConfig');
 var isLoggedIn = require('../middleware/isLoggedIn');
 var path = require('path');
 
-// add the middleware to handle access to the profile page
+// add the middleware to handle access to page
 // user must be logged in.
 // app.get('/profile', isLoggedIn, function(req, res) {
 //   res.render('profile');
@@ -49,7 +49,7 @@ router.put('/update/:id', isLoggedIn, function(req,res){
     }, {
       where: { id:req.params.id }
     }).then(function(user){
-      console.log("Successfully updated ..." + user);
+      // console.log("Successfully updated ..." + user);
       req.flash('success', 'User Profile Updated.');
     }).catch(function(error){
       console.log('error occurred ..|..', error.message);
@@ -67,8 +67,17 @@ router.delete('/delete/:id', isLoggedIn, function(req,res){
     console.log("Successfully deleted ..." + user);
     // how do you hit the logout or home route...
 
-    res.redirect('/');
+    // res.render('/');
+    // res.redirect('/');
+    // res.redirect('/index');
+
+    // res.redirect('/auth/logout');
+    // res.redirect('/auth/signup');
     // res.redirect('auth/logout');
+    // res.redirect('/auth/signup/');
+
+    // res.render('user/profile');
+    // res.redirect('/user/profile');
 
     // req.logout();
     // console.log(' ... user session terminated ....');

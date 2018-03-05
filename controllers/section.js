@@ -13,14 +13,15 @@ router.get('/show/:id', isLoggedIn, function(req,res){
   console.log('in the /section/show/:id path...!')
   db.section.find({
     where: {id:req.params.id},
-    include: [db.garden]
+    include: [db.garden, db.note]
   })
   .then(function(section){
+    // res.send(section);
     // API Call to growstuff to load crops
     var growStuffAPIUrl = 'http://www.growstuff.org/crops/'+section.cropId+'.json';
       request(growStuffAPIUrl, function(error, response, body) {
         var crop = JSON.parse(body);
-        res.render('section/show2', {crop:crop, section:section});
+        res.render('section/show', {crop:crop, section:section});
       });
   })
   .catch(function(error){

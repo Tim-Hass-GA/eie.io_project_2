@@ -46,13 +46,10 @@
         <textarea class="form-control" name="description" aria-label="Section Description" tabindex="5" required><%= section.description %></textarea>
       </div>
     </div>
+    <hr>
+
+    <a class="btn btn-primary" role="button" href="/">Home</a>
+    <a class="btn btn-success active" role="button" href="/garden/show/<%=currentUser.id %>">Show Gardens</a>
     <input class="btn btn-success" type="submit">
   </form>
 </div>
-
-<div class="gardenSectionNotes">
-  <h3>Garden Section Crop Notes</h3>
-  <p>Here are where notes go.</p>
-</div>
-<a class="btn btn-primary" role="button" href="/">Home</a>
-<a class="btn btn-success active" role="button" href="/garden/show/<%=currentUser.id %>">Show Gardens</a>
