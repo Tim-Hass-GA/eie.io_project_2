@@ -35,11 +35,11 @@ This app uses data from the Growstuff API - http://growstuff.org/
 ### CRUD Routes
 Verb | Path | Action | Used for
 ------------ | ------------- | ------------ | -------------
-GET | / | index | - returns home page
+GET | / | read | - returns home page
 GET | auth/signup | read | - returns HTML for the signup page
 POST | auth/signup | create | - create new user account
 GET | auth/login | read | - returns HTML for to login page
-POST | auth/login | create | - confirms new user account and opens new session
+POST | auth/login | create | - confirms user account credentials and opens new session
 GET | auth/logout | read | - logs user out of current session
 GET | user/profile | read | - returns HTML view of the user profile
 GET | edit/profile/:id | read | - returns HTML form to update the user profile
