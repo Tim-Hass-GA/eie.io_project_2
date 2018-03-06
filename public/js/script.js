@@ -78,8 +78,9 @@ $('.delete-garden').on('click', function(e){
     method: 'DELETE',
     url: gardenUrl
   }).done(function(garden){
-    // window.location.reload();
-    window.location = '/garden/new';
+    window.location.reload();
+    // window.location = '/garden/new';
+    // gardenObj.remove()
     console.log('you selected to delete your garden...');
   });
 });
@@ -111,6 +112,7 @@ $('.delete-section').on('click', function(e){
     url: sectionUrl
   }).done(function(section){
     window.location.reload();
+    // window.location = '/garden/show';
     console.log('you selected to delete a section of the garden...');
   });
 });

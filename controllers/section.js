@@ -47,6 +47,8 @@ router.get('/edit/:id', isLoggedIn, function(req,res){
 
 // POST section
 router.post('/new', isLoggedIn, function(req,res){
+    // console.log(req.body);
+    var userId = parseInt(req.body.userId);
     db.section.create({
       name: req.body.name,
       description: req.body.description,
@@ -59,8 +61,16 @@ router.post('/new', isLoggedIn, function(req,res){
     .then(function(section){
       console.log('section created' + section.id);
       // res.render('garden/show', req.body.userId)
-      // res.redirect('garden/show/', userId);
-      res.redirect('/');
+      // res.render('garden/show', req.body.userId)
+      // var garden = parseInt(section.gardenId);
+      res.redirect('/garden/show/'+ userId);
+
+      // var section = parseInt(section.section.id);
+      // res.redirect('section/show/'+ section);
+      // res.redirect('/show/'+ section);
+      // res.render('section/show/'+ section);
+      res.send(section);
+      // res.redirect('/');
     })
     .catch(function(error){
       console.log('error retrieving section/new post ....', error.message);

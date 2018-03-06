@@ -32,10 +32,27 @@ This app uses data from the Growstuff API - http://growstuff.org/
 ### Data Models
 ![Image of Data Models](./readme_images/data-model-project-2.png)
 
+#### Data Tables
+user
+* Attributes: first_name, last_name, email, password, bio
+* Associations: Has many gardens
+
+garden
+* Attributes: name, description, location
+* Associations: Belongs to one user, has many sections
+
+section
+* Attributes: name, description, number_of_rows, item_count, date_planted, gardenId (cropId for later use in expanding model)
+* Associations: Belongs to one garden, Has many notes
+
+notes
+* Attributes: title, details, sectionId
+* Associations: Belongs to one section
+
 ### CRUD Routes
 Verb | Path | Action | Used for
 ------------ | ------------- | ------------ | -------------
-GET | / | read | - returns home page
+GET | / | index | - returns home page
 GET | auth/signup | read | - returns HTML for the signup page
 POST | auth/signup | create | - create new user account
 GET | auth/login | read | - returns HTML for to login page
@@ -44,7 +61,7 @@ GET | auth/logout | read | - logs user out of current session
 GET | user/profile | read | - returns HTML view of the user profile
 GET | edit/profile/:id | read | - returns HTML form to update the user profile
 PUT | update/:id | update | - updates user profile data
-DELETE | delete/:id | delete | deletes user profile and all associated data
+DELETE | delete/:id | delete | - deletes user profile and all associated data
 GET | garden/new | read | - returns HTML form to create a new garden
 GET | garden/add/:id | read | - returns HTML form to complete the creation of a new garden (or new section if adding) after API call
 POST | garden/new | create | - creates new garden renders HTML form to complete the creation of garden section after API call
@@ -61,21 +78,6 @@ GET | notes/new/:id | read | - returns HTML form to include a note for the secti
 POST | notes/new | create | - creates new note for section
 PUT | NOT IN PLACE | update | - updates garden section with data provided
 DELETE | NOT IN PLACE | delete | - deletes garden section and all associated data (notes)
-
-### Models
-Models
-user
-Attributes: first_name, last_name, email, password, bio
-Associations: Has many gardens
-garden
-Attributes: name, description, location
-Associations: Belongs to one user, has many sections
-section
-Attributes: name, description, number_of_rows, item_count, date_planted, gardenId (cropId for later use in expanding model)
-Associations: Belongs to one garden, Has many notes
-notes
-Attributes: title, details, sectionId
-Associations: Belongs to one section
 
 #### Development Process
 DAY 1-3: Review code completed in class, create edit (PUT) and delete routes in, post boiler-plate to GitHub. Retrieve copy of boiler-plate and create wireframe concepts.  Discover ideas, sketch out requirements, tweak wireframe layout, draft data models and user stories.
