@@ -8,8 +8,8 @@ obtain data, tips and other guidance related to the crops in his garden.
 App is hosted at https://eieio-garden-app.herokuapp.com/
 
 ## User Stories:
-* As a user, I’d like to document, track and manage garden(s) that I plant crops in.
-* As a user, I’d like to create, edit or delete my account profile.
+* As a user, I’d like to create an account to document, track and manage garden(s) that I plant crops in.
+* As a user, I’d like to edit/update or delete my account profile.
 * As a user, I’d like to add or delete a garden from my list of gardens.
 * As a user, I’d like to add or delete a section of my garden.
 * As a user, I’d like to add to or delete crops from a section within my garden.
@@ -38,7 +38,7 @@ user
 * Associations: Has many gardens
 
 garden
-* Attributes: name, description, location
+* Attributes: name, description, location, userId
 * Associations: Belongs to one user, has many sections
 
 section
@@ -63,21 +63,21 @@ GET | edit/profile/:id | read | - returns HTML form to update the user profile
 PUT | update/:id | update | - updates user profile data
 DELETE | delete/:id | delete | - deletes user profile and all associated data
 GET | garden/new | read | - returns HTML form to create a new garden
-GET | garden/add/:id | read | - returns HTML form to complete the creation of a new garden (or new section if adding) after API call
+GET | garden/add/:id | read | - returns HTML form allow the user to create a new garden section (API call)
 POST | garden/new | create | - creates new garden renders HTML form to complete the creation of garden section after API call
-GET | garden/show/:id | read | - returns HTML view of all users gardens and sections (if sections have been created)
+GET | garden/show/:id | read | - returns HTML view of all users gardens and sections (if garden/sections have been created)
 GET | garden/edit/:id | read | - returns HTML form to edit garden details
 PUT | garden/update/:id | update | - updates garden with data provided
 DELETE | garden/delete/:id | delete | - deletes garden and all associated data (sections/notes)
-GET | section/show/:id | read | - returns HTML view of the section including crop information for that section (API call)
+GET | section/show/:id | read | - returns HTML view of the section including crop information (API call)
 GET | section/edit/:id | read | - returns HTML form to edit garden section details
 POST | section/new | create | - creates new section returns HTML form to complete the creation of a new garden (or new section if adding) after API call
 PUT | section/update/:id | update | - updates garden section with data provided
 DELETE | section/delete/:id | delete | - deletes garden section and all associated data (notes)
 GET | notes/new/:id | read | - returns HTML form to include a note for the section
 POST | notes/new | create | - creates new note for section
-PUT | NOT IN PLACE | update | - updates garden section with data provided
-DELETE | NOT IN PLACE | delete | - deletes garden section and all associated data (notes)
+PUT | NOT IN PLACE | update | - updates garden section note with data provided
+DELETE | NOT IN PLACE | delete | - deletes garden section note
 
 ### Issues / Incomplete
 - [x] background image was not loading in Heroku (naming convention for Heroku is case sensitive - changing JPG to jpg corrected the issue)
@@ -97,16 +97,37 @@ DELETE | NOT IN PLACE | delete | - deletes garden section and all associated dat
 - [ ] There is always improvements for user experience.
 
 #### Development Process
-DAY 1-3: Review code completed in class, create edit (PUT) and delete routes in, post boiler-plate to GitHub. Retrieve copy of boiler-plate and create wireframe concepts.  Discover ideas, sketch out requirements, tweak wireframe layout, draft data models and user stories.
+DAY 1-3: Review code completed in class, created user edit (PUT) and delete routes in, posted boiler-plate to GitHub. Retrieved a copy of boiler-plate. Researched ideas, sketch out requirements, created initial wireframe, drafted data models and user stories.
 
-DAY 4: Updated data model began building Sequelize models and making associations, created user and garden routes and supporting forms, reviewed USDA and other API data to determine feasibility of use (had to wait on keys). Found bug in Sequelize model associations with naming convention for join tables.
+DAY 4: Updated data models began building Sequelize models and making associations, created user and garden routes and supporting forms, reviewed USDA and other API data to determine feasibility of use (had to wait on keys). Found bug in Sequelize model associations with naming convention for join tables.
 
 DAY 5: Reworked Sequelize models and associations, reviewed API documentation, incorporated initial api calls to obtain data.  Continue garden build routes and forms, made a few test routes to test database operations from form data.
 
-DAY 6: Building section and crop routes and updating forms.  Found a few items in my initial models that were not necessary, rebuilt models.
+DAY 6: Building section and crop routes.  Found a few items in my initial models that were not necessary, rebuilt data models. Reconsidered workflow and form submission, began redesign on forms needed for workflow.
 
-DAY 7: Found a bug on form data picker, where the date variable was not loading correctly.
+DAY 7: Finalized new workflow. Found a bug on form data picker - Sequelize DATE data type returns in long date format, where a date picker requires the Sequilize DATEONLY data type to load in the correct format.  
 
-DAY 8: Rebuild models due to cascading associations not working correctly. Also corrected data type date variable bug within model.
+DAY 8: (STILL HAVING MODEL ISSUES) Rebuilt models due to data model associations not working correctly on (delete CASCADE). I should have tested this earlier in the process... I corrected this issue by rewriting the Sequelize Model and Migrations before creating the tables.  I also corrected the date_planted DATEONLY data type to resolve a bug on form date picker. Tested route functionality after model rebuild.  
 
-DAY 9: Put in notes section (notes need update/delete routes).  Final testing and styling.
+```
+//Garden model change (example)
+models.garden.belongsTo(models.user, {
+  onDelete: "CASCADE",
+  foreignKey: {
+    allowNull: false
+  }
+});
+```
+```
+//Garden migration change (example)
+userId: {
+  type: Sequelize.INTEGER,
+  onDelete: "CASCADE",
+  allowNull: false,
+  references: {
+    model: "users",
+    key: 'id'
+  }
+```
+
+DAY 9: Continued with styling improvements and form organization.  Put in notes section (notes need update/delete routes).  Final testing and code clean-up.  Documented the TODO:s left. Attempted Scrollspy was unable to implement, added to incomplete/next steps.
