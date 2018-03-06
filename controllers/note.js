@@ -21,7 +21,7 @@ router.get('/new/:id', isLoggedIn, function(req,res){
 
 // POST NEW note
 router.post('/new', isLoggedIn, function(req,res){
-  console.log(req.body);
+  // console.log(req.body);
   db.note.create({
     title: req.body.title,
     details: req.body.details,
@@ -29,9 +29,8 @@ router.post('/new', isLoggedIn, function(req,res){
   })
   .then(function(note){
     console.log('new note saved... ' + note.sectionId);
-    // req.flash('success', 'Note Saved');
-    // res.render('section/show/', note.sectionId);
-    res.redirect('/garden/show/'+ req.body.user_id);
+    req.flash('success', 'Note Saved');
+    res.redirect('/section/show/'+ req.body.section_id);
   })
   .catch(function(error){
     console.log('error occurred ..|..', error.message);

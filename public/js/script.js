@@ -1,7 +1,7 @@
 
 ////DOCUMENT READY/////
 $(document).ready(function(){
-  console.log('js is here....!');
+  // console.log('js is here....!');
 
 });
 
@@ -111,8 +111,11 @@ $('.delete-section').on('click', function(e){
     method: 'DELETE',
     url: sectionUrl
   }).done(function(section){
-    window.location.reload();
+    // sectionObj.remove();
+    // section.remove();
+    // window.location.reload();
     // window.location = '/garden/show';
+    // window.location = '/';
     console.log('you selected to delete a section of the garden...');
   });
 });

@@ -58,7 +58,7 @@
             <p>Unable to find crops</p>
           <% } %>
         </div>
-
+        <hr>
         <!-- TODO: implement scrollspy for the crop -->
         <!-- <div id="bootstrap-scrollspy" class="list-group">
           <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
@@ -76,14 +76,8 @@
           <h4 id="list-item-4">Item 4</h4>
           <p>...</p>
         </div> -->
-
-    <input class="btn btn-success" type="submit">
+        <a class="btn btn-primary" role="button" href="/">Home</a>
+        <a class="btn btn-success active" role="button" href="/garden/show/<%=currentUser.id %>">Show Gardens</a>
+        <input class="btn btn-success" type="submit">
     </form>
     </div>
-
-    <div class="gardenSectionNotes">
-      <h3>Garden Section Crop Notes</h3>
-
-    </div>
-    <a class="btn btn-primary" role="button" href="/">Home</a>
-    <a class="btn btn-success active" role="button" href="/garden/show/<%=currentUser.id %>">Show Gardens</a>

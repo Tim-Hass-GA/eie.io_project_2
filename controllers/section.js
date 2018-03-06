@@ -60,17 +60,9 @@ router.post('/new', isLoggedIn, function(req,res){
     })
     .then(function(section){
       console.log('section created' + section.id);
-      // res.render('garden/show', req.body.userId)
-      // res.render('garden/show', req.body.userId)
-      // var garden = parseInt(section.gardenId);
+      req.flash('success', 'Garden Section created.');
       res.redirect('/garden/show/'+ userId);
-
-      // var section = parseInt(section.section.id);
-      // res.redirect('section/show/'+ section);
-      // res.redirect('/show/'+ section);
       // res.render('section/show/'+ section);
-      res.send(section);
-      // res.redirect('/');
     })
     .catch(function(error){
       console.log('error retrieving section/new post ....', error.message);
@@ -81,6 +73,7 @@ router.post('/new', isLoggedIn, function(req,res){
 // PUT section
 router.put('/update/:id', isLoggedIn, function(req,res){
   console.log('hit the /section/update/:id path');
+  var userId = parseInt(req.body.userId);
   db.section.findById(req.params.id)
   .then(function(section){
     db.section.update({
@@ -93,8 +86,12 @@ router.put('/update/:id', isLoggedIn, function(req,res){
       where: {id:req.params.id}
     })
     .then(function(section){
-      console.log('Successfully updated section');
-      req.flash('success', 'Section Updated')
+      console.log('Successfully updated section' + section);
+      // TODO: redirect differently if possible
+      // console.log(userId);
+      // res.method = 'GET';
+      // res.redirect('/garden/show/'+ userId);
+      req.flash('success', 'Section Updated');
     })
     .catch (function(error){
       console.log('error occurred ..|..', error.message);
@@ -115,6 +112,7 @@ router.delete('/delete/:id', isLoggedIn, function(req,res){
   })
   .then(function(section){
     console.log("Successfully deleted ..." + section);
+    req.flash('success', 'Section Deleted');
   })
   .catch(function(error){
     console.log('error occurred ..|..', error.message);

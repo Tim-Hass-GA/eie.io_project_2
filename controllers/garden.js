@@ -48,7 +48,7 @@ router.post('/new', isLoggedIn, function(req,res){
     var growStuffAPIUrl = 'http://www.growstuff.org/crops.json';
       request(growStuffAPIUrl, function(error, response, body) {
         var crops = JSON.parse(body);
-        req.flash('Garden Created.!');
+        req.flash('Garden Created!');
         res.render('section/define', { crops:crops, garden:garden });
       });
   })
@@ -101,8 +101,8 @@ router.put('/update/:id', isLoggedIn, function(req,res){
       where: {id:req.params.id}
     })
     .then(function(garden){
-      console.log('Successfully updated garden' + garden.id);
-      req.flash('success', 'Garden updated.')
+      console.log('Successfully updated garden ' + garden.id);
+      req.flash('success', 'Garden updated.');
     })
     .catch(function(error){
       console.log('error occurred ..|..', error.message);
