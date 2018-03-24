@@ -107,7 +107,7 @@ DAY 6: Building section and crop routes.  Found a few items in my initial models
 
 DAY 7: Finalized new workflow. Found a bug on form data picker - Sequelize DATE data type returns in long date format, where a date picker requires the Sequilize DATEONLY data type to load in the correct format.  
 
-DAY 8: (STILL HAVING MODEL ISSUES) Rebuilt models due to data model associations not working correctly on (delete CASCADE). I should have tested this earlier in the process... I corrected this issue by rewriting the Sequelize Model and Migrations before creating the tables.  I also corrected the date_planted DATEONLY data type to resolve a bug on form date picker. Tested route functionality after model rebuild.  
+DAY 8: (STILL HAVING MODEL ISSUES, BUT I WONT GIVE UP) Made a copy of my app, build a test db and reworked the Sequilize models until I got it the associations right.  (Sample of rebuild code below) Rebuilt models due to data model associations not working correctly (onDelete CASCADE). I should have tested this earlier in the process... I corrected this issue by rewriting the Sequelize Model and Migrations before creating the tables.  I also corrected the date_planted DATEONLY data type to resolve a bug on form date picker. Tested route functionality after model rebuild.  
 
 ```
 //Garden model change (example)
@@ -130,4 +130,4 @@ userId: {
   }
 ```
 
-DAY 9: Continued with styling improvements and form organization.  Put in notes section (notes need update/delete routes).  Final testing and code clean-up.  Documented the TODO:s left. Attempted Scrollspy was unable to implement, added to incomplete/next steps.
+DAY 9: Continued with styling improvements and form organization.  Put in notes section (notes need update/delete routes).  Final testing, code clean-up, documented the TODO:s left. Attempted Scrollspy was unable to implement, added to incomplete/next steps.
