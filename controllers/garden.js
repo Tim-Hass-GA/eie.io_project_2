@@ -102,10 +102,8 @@ router.put('/update/:id', isLoggedIn, function(req,res){
     })
     .then(function(garden){
       console.log('Successfully updated garden ' + garden);
-
-        req.flash('success', 'Garden updated.');
-        res.status(200).send({msg: 'success', garden:garden});
-
+          req.flash('success', 'Garden updated.');
+          res.status(200).send({msg: 'success', user:req.user.id});
     })
     .catch(function(error){
       console.log('error occurred ..|..', error.message);
@@ -135,6 +133,8 @@ router.delete('/delete/:id', isLoggedIn, function(req,res){
         })
         .then(function(garden){
           console.log('Successfully deleted ...' + garden);
+          req.flash('success', 'Successfully deleted garden.');
+          res.status(200).send({msg: 'success'})
         })
         .catch(function(error){
           console.log('error occurred ..|..', error.message);

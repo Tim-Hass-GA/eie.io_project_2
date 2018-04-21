@@ -40,14 +40,15 @@ $(document).ready(function(){
   $('.delete-user').on('click', function(e){
     //prevent default action
     e.preventDefault();
+    console.log('you selected to delete your profile...');
     var userObj = $(this);
     var userUrl = userObj.attr('href');
     $.ajax({
       method: 'DELETE',
       url: userUrl
     }).done(function(user){
-      location.reload();
-      console.log('you selected to delete your profile...');
+      window.location = '/signup'
+      console.log('deleted profile...');
     });
   });
 
@@ -61,9 +62,9 @@ $(document).ready(function(){
       method: 'PUT',
       url: gardenUrl,
       data: gardenData
-    }).done(function(garden){
-      console.log(garden)
-      // window.location = '/garden/show/';
+    }).done(function(user){
+      console.log(user)
+      window.location = '/garden/show/' + user.user;
     });
   });
 
@@ -98,6 +99,7 @@ $(document).ready(function(){
       data: sectionData
     }).done(function(section){
       console.log('Successfully updated section.')
+      // redirect with userid
     });
   });
 
@@ -121,4 +123,4 @@ $(document).ready(function(){
     });
   });
 
-});
+}); // end of document ready

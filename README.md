@@ -82,9 +82,9 @@ DELETE | NOT IN PLACE | delete | - deletes garden section note
 ### Issues / Incomplete
 - [x] background image was not loading in Heroku (naming convention for Heroku is case sensitive - changing JPG to jpg corrected the issue)
 - [x] Provided a better user experience for section post route.
-- [ ] While a user is selecting a crop choice for a garden section the data has a long scroll (implement scrollspy to provided a better user experience).
-- [ ] Provided a better user experience for garden list (implement scrollspy).
-- [ ] Garden Section include calculated data concerning crops in this section; such as, days to harvest (data availability), watering table* , what types of fertilizer to use*,  (* need new api source).
+- [ ] While a user is selecting a crop choice for a garden section the data has a long scroll (implement a better user experience).
+- [ ] Provided a better user experience for garden list.
+- [ ] Garden Section include calculated data concerning crops in this section.
 - [ ] Notes section PUT and DELETE routes for specific notes.
 - [ ] On User Account DELETE route issues, however account data is removed.
 
@@ -107,7 +107,7 @@ DAY 6: Building section and crop routes.  Found a few items in my initial models
 
 DAY 7: Finalized new workflow. Found a bug on form data picker - Sequelize DATE data type returns in long date format, where a date picker requires the Sequilize DATEONLY data type to load in the correct format.  
 
-DAY 8: (STILL HAVING MODEL ISSUES, BUT I WONT GIVE UP) Made a copy of my app, build a test db and reworked the Sequilize models until I got it the associations right.  (Sample of rebuild code below) Rebuilt models due to data model associations not working correctly (onDelete CASCADE). I should have tested this earlier in the process... I corrected this issue by rewriting the Sequelize Model and Migrations before creating the tables.  I also corrected the date_planted DATEONLY data type to resolve a bug on form date picker. Tested route functionality after model rebuild.  
+DAY 8: (STILL HAVING MODEL ISSUES) Made a copy of my app, build a test db and reworked the Sequilize models until I got it the associations right.  (Sample of rebuild code below) Rebuilt models due to data model associations not working correctly (onDelete CASCADE). I should have tested this earlier in the process... I corrected this issue by rewriting the Sequelize Model and Migrations before creating the tables.  I also corrected the date_planted DATEONLY data type to resolve a bug on form date picker. Tested route functionality after model rebuild.  
 
 ```
 //Garden model change (example)
@@ -131,3 +131,6 @@ userId: {
 ```
 
 DAY 9: Continued with styling improvements and form organization.  Put in notes section (notes need update/delete routes).  Final testing, code clean-up, documented the TODO:s left. Attempted Scrollspy was unable to implement, added to incomplete/next steps.
+
+## Post Cohort
+DAY 10: Improved routing for user, garden and section updates.
