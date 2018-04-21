@@ -48,7 +48,7 @@ router.post('/new', isLoggedIn, function(req,res){
     var growStuffAPIUrl = 'http://www.growstuff.org/crops.json';
       request(growStuffAPIUrl, function(error, response, body) {
         var crops = JSON.parse(body);
-        req.flash('Garden Created!');
+        req.flash('success','Garden Created!');
         res.render('section/define', { crops:crops, garden:garden });
       });
   })
@@ -60,7 +60,7 @@ router.post('/new', isLoggedIn, function(req,res){
 
 // SHOW GARDEN
 router.get('/show/:id', isLoggedIn, function(req,res){
-  console.log('hit the garden/show/:id path');
+  // console.log('hit the garden/show/:id path');
   db.garden.findAll({
     where: {userId:req.params.id},
     include: [db.section]
@@ -77,7 +77,7 @@ router.get('/show/:id', isLoggedIn, function(req,res){
 
 // GET EDIT GARDEN
 router.get('/edit/:id', isLoggedIn, function(req,res){
-  console.log('hit the garden/edit/:id path');
+  // console.log('hit the garden/edit/:id path');
   db.garden.findOne({
     where: {id:req.params.id}
   }).then(function(garden){
@@ -90,7 +90,7 @@ router.get('/edit/:id', isLoggedIn, function(req,res){
 
 // UPDATE GARDEN
 router.put('/update/:id', isLoggedIn, function(req,res){
-  console.log('hit the /garden/update/:id path');
+  // console.log('hit the /garden/update/:id path');
   db.garden.findById(req.params.id)
   .then(function(garden){
     db.garden.update({
@@ -101,9 +101,9 @@ router.put('/update/:id', isLoggedIn, function(req,res){
       where: {id:req.params.id}
     })
     .then(function(garden){
-      console.log('Successfully updated garden ' + garden);
-          req.flash('success', 'Garden updated.');
-          res.status(200).send({msg: 'success', user:req.user.id});
+      // console.log('Successfully updated garden ' + garden);
+      req.flash('success', 'Garden Updated.');
+      res.status(200).send({msg: 'success', user:req.user.id});
     })
     .catch(function(error){
       console.log('error occurred ..|..', error.message);
@@ -118,13 +118,13 @@ router.put('/update/:id', isLoggedIn, function(req,res){
 
 // DELETE
 router.delete('/delete/:id', isLoggedIn, function(req,res){
-  console.log('hit the garden/delete/:id path');
+  // console.log('hit the garden/delete/:id path');
   db.garden.findOne({
     where: {id:req.params.id},
     include: [db.section]
   }).then(function(garden){
     async.forEach(garden.section, function(section, callback){
-      console.log(section);
+      // console.log(section);
       section.removeGarden(garden);
       callback();
     } , function(){
@@ -132,8 +132,8 @@ router.delete('/delete/:id', isLoggedIn, function(req,res){
           where: {id:req.params.id}
         })
         .then(function(garden){
-          console.log('Successfully deleted ...' + garden);
-          req.flash('success', 'Successfully deleted garden.');
+          // console.log('Successfully deleted ...' + garden);
+          req.flash('success', 'Successfully Deleted Garden and Sections.');
           res.status(200).send({msg: 'success'})
         })
         .catch(function(error){

@@ -14,7 +14,7 @@ var path = require('path');
 
 // GET ROUTE
 router.get('/profile', isLoggedIn, function(req,res){
-  console.log('in the user/profile route...');
+  // console.log('in the user/profile route...');
   db.user.findById(req.user.id)
   .then(function(user){
     res.render('user/profile', {user:user});
@@ -27,7 +27,7 @@ router.get('/profile', isLoggedIn, function(req,res){
 
 // GET EDIT
 router.get('/edit/:id', isLoggedIn, function(req,res){
-  console.log('in the user/edit/:id route...');
+  // console.log('in the user/edit/:id route...');
   db.user.findById(req.user.id)
   .then(function(user){
     res.render('user/edit', {user:user});
@@ -40,7 +40,7 @@ router.get('/edit/:id', isLoggedIn, function(req,res){
 
 // PUT ROUTE
 router.put('/update/:id', isLoggedIn, function(req,res){
-  console.log('in the user/update/:id route...');
+  // console.log('in the user/update/:id route...');
   db.user.findById(req.params.id)
   .then(function(user){
     db.user.update({
@@ -75,31 +75,14 @@ router.put('/update/:id', isLoggedIn, function(req,res){
 
 // DELETE ROUTE
 router.delete('/delete/:id', isLoggedIn, function(req,res){
-  console.log('hit the /delete/:id user');
+  // console.log('hit the /delete/:id user');
+  req.logout();
   db.user.destroy({
     where: {id:req.params.id}
   })
   .then(function(user){
-    console.log("Successfully deleted ..." + user);
-    // how do you hit the logout or home route...
-
-    // res.render('/');
-    // res.redirect('/');
-    // res.redirect('/index');
-
-    // res.redirect('/auth/logout');
-    // res.redirect('/auth/signup');
-    // res.redirect('auth/logout');
-    // res.redirect('/auth/signup/');
-
-    // res.render('user/profile');
-    // res.redirect('/user/profile');
-
-    // req.logout();
-    // console.log(' ... user session terminated ....');
-    // req.flash('success', 'You are now logged out!');
-    // res.render('/');
-
+    req.flash('success', 'Your account has been deleted!');
+    res.status(200).send({msg:'success', user:user});
   })
   .catch(function(error){
     console.log('error occurred ..|..', error.message);

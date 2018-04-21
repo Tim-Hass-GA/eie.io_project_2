@@ -83,10 +83,11 @@ DELETE | NOT IN PLACE | delete | - deletes garden section note
 - [x] background image was not loading in Heroku (naming convention for Heroku is case sensitive - changing JPG to jpg corrected the issue)
 - [x] Provided a better user experience for section post route.
 - [ ] While a user is selecting a crop choice for a garden section the data has a long scroll (implement a better user experience).
-- [ ] Provided a better user experience for garden list.
+- [ ] Provide a better user experience for garden list.
+- [x] Provide better user feedback for garden and section actions.
 - [ ] Garden Section include calculated data concerning crops in this section.
 - [ ] Notes section PUT and DELETE routes for specific notes.
-- [ ] On User Account DELETE route issues, however account data is removed.
+- [x] On User Account DELETE route issues, however account data is removed.
 
 ### Next Steps / Improvements
 - [ ] Garden - Connect to Weather API to provide forecast data; maybe a user would want to plant just before it rains, or not while it will be raining.
@@ -133,4 +134,4 @@ userId: {
 DAY 9: Continued with styling improvements and form organization.  Put in notes section (notes need update/delete routes).  Final testing, code clean-up, documented the TODO:s left. Attempted Scrollspy was unable to implement, added to incomplete/next steps.
 
 ## Post Cohort
-DAY 10: Improved routing for user, garden and section updates.
+DAY 10: Improved user routes for user, garden and section updates and deletions - provided better flash messaging.

@@ -28,7 +28,7 @@ router.post('/new', isLoggedIn, function(req,res){
     sectionId: req.body.section_id
   })
   .then(function(note){
-    console.log('new note saved... ' + note.sectionId);
+    // console.log('new note saved... ' + note.sectionId);
     req.flash('success', 'Note Saved');
     res.redirect('/section/show/'+ req.body.section_id);
   })

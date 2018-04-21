@@ -40,20 +40,19 @@ $(document).ready(function(){
   $('.delete-user').on('click', function(e){
     //prevent default action
     e.preventDefault();
-    console.log('you selected to delete your profile...');
     var userObj = $(this);
     var userUrl = userObj.attr('href');
     $.ajax({
       method: 'DELETE',
       url: userUrl
     }).done(function(user){
-      window.location = '/signup'
-      console.log('deleted profile...');
+      window.location = '/';
     });
   });
 
   // GARDEN UPDATE
   $('.edit-garden').on('submit', function(e){
+    //prevent default action
     e.preventDefault();
     var gardenObj = $(this);
     var gardenUrl = gardenObj.attr('action');
@@ -63,7 +62,6 @@ $(document).ready(function(){
       url: gardenUrl,
       data: gardenData
     }).done(function(user){
-      console.log(user)
       window.location = '/garden/show/' + user.user;
     });
   });
@@ -79,17 +77,13 @@ $(document).ready(function(){
       url: gardenUrl
     }).done(function(garden){
       window.location.reload();
-      // window.location = '/garden/new';
-      // gardenObj.remove()
-      location.reload();
-      console.log('you selected to delete your garden...');
     });
   });
 
   // SECTION UPDATE
   $('.update-section').on('submit', function(e){
+    //prevent default action
     e.preventDefault();
-    // console.log('clicked update');
     var sectionObj = $(this);
     var sectionUrl = sectionObj.attr('action');
     var sectionData = sectionObj.serialize();
@@ -98,8 +92,7 @@ $(document).ready(function(){
       url: sectionUrl,
       data: sectionData
     }).done(function(section){
-      console.log('Successfully updated section.')
-      // redirect with userid
+      window.location = '/section/show/' + section.section;
     });
   });
 
@@ -113,13 +106,7 @@ $(document).ready(function(){
       method: 'DELETE',
       url: sectionUrl
     }).done(function(section){
-      // sectionObj.remove();
-      // section.remove();
-      // window.location.reload();
-      // window.location = '/garden/show';
-      // window.location = '/';
-      location.reload();
-      console.log('you selected to delete a section of the garden...');
+      window.location.reload();
     });
   });
 

@@ -10,7 +10,7 @@ var request = require('request');
 
 // SHOW SECTION
 router.get('/show/:id', isLoggedIn, function(req,res){
-  console.log('in the /section/show/:id path...!')
+  // console.log('in the /section/show/:id path...!')
   db.section.find({
     where: {id:req.params.id},
     include: [db.garden, db.note]
@@ -59,10 +59,9 @@ router.post('/new', isLoggedIn, function(req,res){
       cropId: req.body.crop_choice
     })
     .then(function(section){
-      console.log('section created' + section.id);
-      req.flash('success', 'Garden Section created.');
+      // console.log('section created' + section.id);
+      req.flash('success', 'Garden Section Created.');
       res.redirect('/garden/show/'+ userId);
-      // res.render('section/show/'+ section);
     })
     .catch(function(error){
       console.log('error retrieving section/new post ....', error.message);
@@ -72,7 +71,7 @@ router.post('/new', isLoggedIn, function(req,res){
 
 // PUT section
 router.put('/update/:id', isLoggedIn, function(req,res){
-  console.log('hit the /section/update/:id path');
+  // console.log('hit the /section/update/:id path');
   var userId = parseInt(req.body.userId);
   db.section.findById(req.params.id)
   .then(function(section){
@@ -86,12 +85,9 @@ router.put('/update/:id', isLoggedIn, function(req,res){
       where: {id:req.params.id}
     })
     .then(function(section){
-      console.log('Successfully updated section' + section);
-      // TODO: redirect differently if possible
-      // console.log(userId);
-      // res.method = 'GET';
-      // res.redirect('/garden/show/'+ userId);
-      req.flash('success', 'Section Updated');
+      // console.log('Successfully Updated section' + section);
+      req.flash('success', 'Section Updated.');
+      res.status(200).send({msg: 'success', section:req.params.id});
     })
     .catch (function(error){
       console.log('error occurred ..|..', error.message);
@@ -106,13 +102,14 @@ router.put('/update/:id', isLoggedIn, function(req,res){
 
 // DELETE section
 router.delete('/delete/:id', isLoggedIn, function(req,res){
-  console.log('hit the /section/delete/:id path');
+  // console.log('hit the /section/delete/:id path');
   db.section.destroy({
     where: {id:req.params.id}
   })
   .then(function(section){
-    console.log("Successfully deleted ..." + section);
+    // console.log("Successfully deleted ..." + section);
     req.flash('success', 'Section Deleted');
+    res.status(200).send({msg: 'success'})
   })
   .catch(function(error){
     console.log('error occurred ..|..', error.message);
