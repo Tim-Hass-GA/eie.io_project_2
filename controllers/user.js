@@ -18,7 +18,8 @@ router.get('/profile', isLoggedIn, function(req,res){
   db.user.findById(req.user.id)
   .then(function(user){
     res.render('user/profile', {user:user});
-  }).catch(function(error){
+  })
+  .catch(function(error){
     console.log('error occurred ..|..', error.message);
     res.flash('error', error.message);
   });
@@ -30,7 +31,8 @@ router.get('/edit/:id', isLoggedIn, function(req,res){
   db.user.findById(req.user.id)
   .then(function(user){
     res.render('user/edit', {user:user});
-  }).catch(function(error){
+  })
+  .catch(function(error){
     console.log('error occurred ..|..', error.message);
     req.flash('error', error.message);
   });
@@ -48,10 +50,23 @@ router.put('/update/:id', isLoggedIn, function(req,res){
       email: req.body.email
     }, {
       where: { id:req.params.id }
-    }).then(function(user){
-      // console.log("Successfully updated ..." + user);
-      req.flash('success', 'User Profile Updated.');
-    }).catch(function(error){
+    })
+    .then(function(user){
+      // console.log("Successfully updated ...", user);
+      db.user.findOne({
+        where: {id:req.params.id}
+      })
+      .then(function(user){
+        // console.log("Successfully found ..." + user);
+        req.flash('success', 'Profile Updated.');
+        res.status(200).send({msg: 'success', user:user});
+      })
+      .catch(function(error){
+        console.log('error occurred cannot find user..|..', error.message);
+        req.flash('error', error.message);
+      });
+    })
+    .catch(function(error){
       console.log('error occurred ..|..', error.message);
       req.flash('error', error.message);
     });
@@ -63,7 +78,8 @@ router.delete('/delete/:id', isLoggedIn, function(req,res){
   console.log('hit the /delete/:id user');
   db.user.destroy({
     where: {id:req.params.id}
-  }).then(function(user){
+  })
+  .then(function(user){
     console.log("Successfully deleted ..." + user);
     // how do you hit the logout or home route...
 
@@ -84,7 +100,8 @@ router.delete('/delete/:id', isLoggedIn, function(req,res){
     // req.flash('success', 'You are now logged out!');
     // res.render('/');
 
-  }).catch(function(error){
+  })
+  .catch(function(error){
     console.log('error occurred ..|..', error.message);
     req.flash('error', error.message);
   });

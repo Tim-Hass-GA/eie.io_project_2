@@ -101,8 +101,11 @@ router.put('/update/:id', isLoggedIn, function(req,res){
       where: {id:req.params.id}
     })
     .then(function(garden){
-      console.log('Successfully updated garden ' + garden.id);
-      req.flash('success', 'Garden updated.');
+      console.log('Successfully updated garden ' + garden);
+
+        req.flash('success', 'Garden updated.');
+        res.status(200).send({msg: 'success', garden:garden});
+
     })
     .catch(function(error){
       console.log('error occurred ..|..', error.message);
