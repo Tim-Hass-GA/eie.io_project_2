@@ -6,6 +6,7 @@ him track, document, manage information about the plants in his garden; as well 
 obtain data, tips and other guidance related to the crops in his garden.
 
 App is hosted at https://eieio-garden-app.herokuapp.com/
+Project 2 - GA
 
 ## User Stories:
 * As a user, I’d like to create an account to document, track and manage garden(s) that I plant crops in.
