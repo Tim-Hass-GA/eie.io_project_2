@@ -28,9 +28,11 @@ This app uses data from the Growstuff API - http://growstuff.org/
 
 ### App Workflow
 - Login
+
 ![Image of Wireframes](./readme_images/eieio_signup_login.gif)
 
 - Create Garden and Section
+
 ![Image of Wireframes](./readme_images/eieio_newgarden_section.gif)
 
 ### Wire Frames
