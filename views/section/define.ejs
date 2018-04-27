@@ -44,40 +44,26 @@
         <div class="gardenCrop">
           <h3>Choose Section Crop </h3>
           <p>Pick which crop will occupy this section of the garden.</p>
-          <% if (crops){ %>
-            <% crops.forEach(function(crop){ %>
-              <div class="form-group">
-                <ul class="list-group">
-                  <li class="list-group-item list-group-item-primary"><input type="radio" name="crop_choice" value="<%= crop.id %>">
-                    Plant <%= crop.name %>
-                    | <a href="<%= crop.en_wikipedia_url %>" target="_blank" > <%= crop.name %> Wiki </a></li>
-                </ul>
-              </div>
-            <% }) %>
-          <% } else { %>
-            <p>Unable to find crops</p>
-          <% } %>
+          <div class="cropList">
+            <% if (crops){ %>
+              <% crops.forEach(function(crop){ %>
+                <div class="form-group">
+                  <ul class="list-group">
+                    <li class="list-group-item list-group-item-primary"><input type="radio" name="crop_choice" value="<%= crop.id %>">
+                      Plant <%= crop.name %>
+                      | <a href="<%= crop.en_wikipedia_url %>" target="_blank" > <%= crop.name %> Wiki </a></li>
+                  </ul>
+                </div>
+              <% }) %>
+            <% } else { %>
+              <p>Unable to find crops</p>
+            <% } %>
+          </div>
         </div>
         <hr>
-        <!-- TODO: implement scrollspy for the crop -->
-        <!-- <div id="bootstrap-scrollspy" class="list-group">
-          <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
-          <a class="list-group-item list-group-item-action" href="#list-item-2">Item2</a>
-          <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
-          <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
-        </div>
-        <div data-spy="scroll" data-target="#bootstrap-scrollspy" data-offset="0" class="scrollspy">
-          <h4 id="list-item-1">Item 1</h4>
-          <p>...</p>
-          <h4 id="list-item-2">Item 2</h4>
-          <p>...</p>
-          <h4 id="list-item-3">Item 3</h4>
-          <p>...</p>
-          <h4 id="list-item-4">Item 4</h4>
-          <p>...</p>
-        </div> -->
+
         <a class="btn btn-primary" role="button" href="/">Home</a>
-        <a class="btn btn-success active" role="button" href="/garden/show/<%=currentUser.id %>">Show Gardens</a>
+        <a class="btn btn-info" role="button" href="/garden/show/<%=currentUser.id %>">Show Gardens</a>
         <input class="btn btn-success" type="submit">
     </form>
     </div>

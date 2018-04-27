@@ -1,8 +1,7 @@
 # EIEIO (eie.io) - Old MacDonald's First Garden App
 
 Believe it or not Old MacDonald started off with a small backyard garden, this was long before he became
-obsessed with animals and farming.  This app was the first app he used "back in the day" to help
-him track, document, manage information about the plants in his garden; as well as query APIs to
+obsessed with writing songs about animals and farming.  This app was the first app he used "back in the day" to help him track, document, manage information about the plants in his garden; as well as query APIs to
 obtain data, tips and other guidance related to the crops in his garden.
 
 App is hosted at https://eieio-garden-app.herokuapp.com/
@@ -26,6 +25,13 @@ Project 2 - GA
 This app uses data from the Growstuff API - http://growstuff.org/
 
 ## Documentation
+
+### App Workflow
+- Login
+![Image of Wireframes](./readme_images/eieio_signup_login.gif)
+
+- Create Garden and Section
+![Image of Wireframes](./readme_images/eieio_newgarden_section.gif)
 
 ### Wire Frames
 ![Image of Wireframes](./readme_images/inital-wireframes-project-2.png)
@@ -83,7 +89,7 @@ DELETE | NOT IN PLACE | delete | - deletes garden section note
 ### Issues / Incomplete
 - [x] background image was not loading in Heroku (naming convention for Heroku is case sensitive - changing JPG to jpg corrected the issue)
 - [x] Provided a better user experience for section post route.
-- [ ] While a user is selecting a crop choice for a garden section the data has a long scroll (implement a better user experience).
+- [x] While a user is selecting a crop choice for a garden section the data has a long scroll (implement a better user experience).
 - [ ] Provide a better user experience for garden list.
 - [x] Provide better user feedback for garden and section actions.
 - [ ] Garden Section include calculated data concerning crops in this section.
@@ -136,3 +142,5 @@ DAY 9: Continued with styling improvements and form organization.  Put in notes 
 
 ## Post Cohort
 DAY 10: Improved user routes for user, garden and section updates and deletions - provided better flash messaging.
+
+DAY 11: Improved user experience and responsiveness for garden section, some updates to buttons and button placement for consistency.

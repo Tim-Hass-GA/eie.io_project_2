@@ -12,18 +12,24 @@ html, body {
 
 }
 
+.btn {
+  margin: .25em .15em;
+}
+
 h1, h2, h3, p, label {
   color: #fff;
 }
 
 article {
-    display: block;
+  display: block;
 }
 
 .article-getStarted {
   background-color: white;
+  padding: .25em;
 }
-.article-getStarted h3 {
+
+.article-getStarted h3,.article-getStarted p {
   color: #000;
 }
 
@@ -43,18 +49,19 @@ article {
   padding: 0;
 }
 
-/* #bootstrap-scrollspy {
-  position: relative;
-  height: 500px;
+.gardenCrop {
+  border: .25em solid #fff;
+  border-radius: 1em;
+  padding: .25em;
+}
+
+.cropList {
+  width: auto;
+  height: 200px;
   overflow-y: scroll;
-
-} */
-
-/* .scrollspy {
-} */
+}
 
 footer {
-  /* position:absolute; */
    bottom:0;
    width:100%;
 }

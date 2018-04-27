@@ -1,16 +1,19 @@
-<h2>Home</h2>
+<!-- <h2>Home</h2> -->
 <% if (currentUser) { %>
   <p>Hi <%= currentUser.first_name %> <%= currentUser.last_name %>, welcome.</p>
 <% } %>
 <div class="home-content">
   <article class="article-about">
-    <h3>About Eie.io Garden App.</h3>
-    <p>The Eie.io Garden App allows a user to create and track your backyard
-      garden. </p>
+    <h3>About Eie.io Garden App</h3>
+    <p>Believe it or not Old MacDonald started off in a small backyard garden, this was long before he became
+    obsessed with writing songs about animals and farming.  This app was the first app he used "back in the day" to help
+    him track, document, manage information about the plants in his garden.</p>
   </article>
   <hr>
   <article class="article-getStarted">
-    <h3>How to get started.</h3>
+    <h4>How to get started.</h4>
+    <p>The Eie.io Garden App allows a user to create and track activities in your backyard
+      garden. </p>
     <ol>
       <li>Step 1: Create an Account or Log in.</li>
       <li>Step 2: Create a Garden</li>
@@ -24,7 +27,8 @@
         <li>The Show Gardens button opens a list of your gardens.</li>
         <ul>
           <li>You can edit, add or delete gardens.</li>
-          <li>You can also edit, add or delete garden sections.</li>
+          <li>You can edit, add or delete garden sections.</li>
+          <li>You can also modify or delete your account at anytime (however, all data will be lost).</li>
         </ul>
       <% } %>
     </ol>
