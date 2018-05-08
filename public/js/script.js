@@ -18,6 +18,9 @@ $(document).ready(function(){
   // $('#list-example')
   // $('body').scrollspy({ target: '#bootstrap-scrollspy' })
 
+  // $('.carousel').carousel();
+  // $('#carousel_info').carousel();
+
   ////////ROUTE HELPERS////////
 
   // USER PUT
