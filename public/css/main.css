@@ -9,15 +9,18 @@ html, body {
   min-height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
-
 }
 
 .btn {
   margin: .25em .15em;
 }
 
-h1, h2, h3, p, label {
+hr, h1, h2, h3, p, label {
   color: #fff;
+}
+
+h5 {
+  color: #000;
 }
 
 article {
@@ -47,6 +50,12 @@ article {
 
 .ad-image img {
   padding: 0;
+}
+
+.carousel-item img {
+  width: 80%;
+  margin: 0 auto;
+  padding: .25em;
 }
 
 .gardenCrop {

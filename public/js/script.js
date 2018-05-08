@@ -18,7 +18,9 @@ $(document).ready(function(){
   // $('#list-example')
   // $('body').scrollspy({ target: '#bootstrap-scrollspy' })
 
-  // $('.carousel').carousel();
+  $('.carousel').carousel({
+    interval: 5000
+  });
   // $('#carousel_info').carousel();
 
   ////////ROUTE HELPERS////////
