@@ -30,6 +30,20 @@ article {
 .article-getStarted {
   background-color: white;
   padding: .25em;
+  width: auto;
+  height: 500px;
+  overflow-y: scroll;
+  border-radius: .5em;
+}
+
+.article-getStarted ol,  .article-getStarted ul{
+  padding-left: 1em;
+
+}
+
+.article-getStarted ol li {
+  list-style: none;
+
 }
 
 .article-getStarted h3,.article-getStarted p {
@@ -52,10 +66,10 @@ article {
   padding: 0;
 }
 
-.carousel-item img {
-  width: 80%;
-  margin: 0 auto;
-  padding: .25em;
+.getStarted-example {
+
+  /* margin: 0 auto; */
+  padding: 1em;
 }
 
 .gardenCrop {
