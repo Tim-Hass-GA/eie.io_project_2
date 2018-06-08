@@ -146,3 +146,5 @@ DAY 9: Continued with styling improvements and form organization.  Put in notes 
 DAY 10: Improved user routes for user, garden and section updates and deletions - provided better flash messaging.
 
 DAY 11: Improved user experience and responsiveness for garden section, some updates to buttons and button placement for consistency.
+
+DAY 12: npm audit found found 8 vulnerabilities (3 low, 2 moderate, 2 high, 1 critical) in 1407 scanned packages. Installed required updates, tested use cases, redeployed.
